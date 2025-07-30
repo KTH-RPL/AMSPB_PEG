@@ -60,8 +60,8 @@ pip install -e .
 ```bash
 conda create -n amspb_env python=3.9 -y
 conda activate amspb_env
-pip install --upgrade tensordict==0.3.2 torchrl==0.3.1
 pip install -r requirements.txt
+pip install --upgrade tensordict==0.3.2 torchrl==0.3.1
 ```
 
 > **Troubleshooting**: If you encounter the error:
@@ -74,64 +74,24 @@ pip install -r requirements.txt
 
 ---
 
-## 🏁 Quick Start
+## 🏁 Quick Start (coming soon)
 
-1. **Configure experiment**: edit `configs/your_experiment.yaml` to set training hyperparameters, arena size, reward weights, etc.
-2. **Train a policy**:
-
-   ```bash
-   python train.py --agent pursuer --config configs/pursuer.yaml
-   ```
-3. **Evaluate and benchmark**:
-
-   ```bash
-   python evaluate.py --checkpoint runs/pursuer/latest.pt --benchmarks hover circular repel
-   ```
-4. **Visualize results** (coming soon): use the `scripts/visualize.py` to plot capture rates and trajectories.
-
----
 
 ## 📈 Results
 
-<!-- ## Placeholder for performance plots -->
-
-*Concluded in the paper that rate-based policies achieve:*
-
-* Up to **12.90 m/s** peak linear speed vs. 10.49 m/s for velocity-based.
-* Up to **12.85 rad/s** peak angular rate vs. 6.38 rad/s for velocity-based.
-* **Monotonic capture-rate improvement** against a suite of benchmark opponents using AMSPB.
-
-!
-
-*> Section V of the paper presents detailed tables and ablation.*
-
----
 
 ## 📚 Citation
 
 If you use this code in your research, please cite the paper:
 
 ```bibtex
-@article{roncero2025learnedquadpeg,
-  title     = {Learned Controllers for Agile Quadrotors in Pursuit–Evasion Games},
-  author    = {S{'a}nchez Roncero, Alejandro and Andersson, Olov and {
- O}gren, Petter},
-  journal   = {arXiv preprint arXiv:2407.00000},
-  year      = {2025},
+@article{roncero2025learned,
+  title={Learned Controllers for Agile Quadrotors in Pursuit-Evasion Games},
+  author={Roncero, Alejandro Sanchez and Andersson, Olov and Ogren, Petter},
+  journal={arXiv preprint arXiv:2506.02849},
+  year={2025}
 }
 ```
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Please:
-
-1. Fork the repo
-2. Create a new branch (`git checkout -b feature/my-feature`)
-3. Commit your changes (`git commit -m 'Add my feature'`)
-4. Push to the branch (`git push origin feature/my-feature`)
-5. Open a Pull Request
 
 ---
 
@@ -144,4 +104,3 @@ This project is released under the MIT License. See [LICENSE](LICENSE) for detai
 ## 📬 Contact
 
 Alejandro Sánchez Roncero — [alesr@kth.se](mailto:alesr@kth.se)
-Project Link: [https://github.com/yourusername/AMSPB\_PEG](https://github.com/yourusername/AMSPB_PEG)
