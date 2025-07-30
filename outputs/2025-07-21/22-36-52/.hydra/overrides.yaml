@@ -1,0 +1,11 @@
+- task.pursuer_model.policy=pid
+- task.pursuer_model.source_policy=None
+- task.evader_model.policy=['fixed_path:circular', 'repel', 'rate_amsdrl', 'velocity_amspb',
+  'rate_amspb', 'dumb']
+- task.evader_model.source_policy=[None, None, 'e-rate_s2-rate_s1-sz_2.0-len_600-v0_0-br_1-prob_0.0-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_11-fr_rate_s1',
+  'e-velocity_s2-velocity_s1-sz_2.0-len_600-v0_0-br_1-prob_0.5-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_11-fr_velocity_s1',
+  'e-rate_s2-rate_s1-sz_2.0-len_600-v0_0-br_1-prob_0.5-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_11-fr_rate_s1',
+  None]
+- n_seeds=3
+- task.prob_old_policy=1.00
+- task.env.z_stop=-2

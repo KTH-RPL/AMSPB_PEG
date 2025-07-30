@@ -1,0 +1,9 @@
+- task.prob_old_policy=0.0
+- task.difficulty.arena_size=0.0
+- wandb.run_name=Evasion-ppo-rate-pn-dif:0.0-prob:0.0-rand:0-from:fixed_path_circular
+- wandb.tags=['baseline', 'pn']
+- task.evader_model.policy=rate
+- task.evader_model.source_policy=evasion-ppo-rate-fixed_path_circular-dif_0.0-prob_0.0-rand_0-from_fixed_path_hover
+- algo.clip_param=0.02
+- task.pursuer_model.policy=['fixed_path:hover', 'fixed_path:circular', 'pn']
+- task.pursuer_model.source_policy=[None, None, None]

@@ -1,0 +1,8 @@
+- total_frames=50000
+- task.prob_old_policy=0.75
+- wandb.run_name=Pursuit-ppo-thrust-fixed_path:hover-dif:1.0-from:scratch
+- wandb.tags=['baseline', 'fixed_path:hover']
+- task.pursuer_model.policy=thrust
+- task.pursuer_model.source_policy=None
+- task.evader_model.policy=['fixed_path:hover']
+- task.evader_model.source_policy=[None]

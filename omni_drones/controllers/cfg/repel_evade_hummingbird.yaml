@@ -1,0 +1,7 @@
+k_pursuer: 1.0     
+k_wall: 1.0
+order_den_pursuer: 3
+order_den_wall: 2
+min_wall_dist: 100.0
+min_pursuer_dist: 100.0
+max_speed: 8.0

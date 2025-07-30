@@ -1,0 +1,7 @@
+- task.env.arena_size=2
+- task.env.start_with_initial_velocity=True
+- task.reward_approach_weight=0.005
+- task.reward_body_rates_weight=0
+- task.reward_effort_weight=0
+- task.reward_evader_caught=5
+- task.reward_out_of_bounds=0.1

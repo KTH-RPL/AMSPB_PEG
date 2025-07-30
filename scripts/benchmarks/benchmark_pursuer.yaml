@@ -1,0 +1,170 @@
+# hydra.job.chdir: false
+hydra:
+  searchpath:
+    # see https://hydra.cc/docs/advanced/search_path/
+    # - file://../../cfg
+    - file://cfg
+
+headless: true
+use_model: "latest" # best, latest, None
+
+sim: ${task.sim}
+env: ${task.env}
+
+total_frames: 5_000_000
+max_iters: -1
+eval_interval: 50
+render_interval: -1
+save_interval: 200
+early_stop_threshold: 0.95
+early_stop_patience: -1
+n_seeds: 1
+
+task:
+  name: Pursuit
+  do_interception: true
+
+  prob_old_policy: 1.00
+
+  env:
+    num_envs: 256
+    arena_size: 2.0
+    max_episode_length: 600
+    final_separation: 0.5
+    max_final_separation_track: 3.0 # if separation at the end is larger than this, negative reward for tracking
+    render_grid_arenas: true
+    start_with_initial_velocity: false
+    vel0_std: 0.00
+    leave_spacing_between_envs: true
+    include_noise_in_observations: false
+    curriculum_pursuer_speed: false
+    z_min: 0.5 # min height of the arena
+    z_stop: -2.0 # below z_stop, episode is terminated
+    scale_drones: 1.0
+
+  pursuer_model: 
+    name: Hummingbird
+    policy: frpn # {fixed_path:hover, fixed_path:circular, pid, pn, frpn, velocity, rate, thrust}
+    source_policy: 
+      # p-rate_s1-rate_s1-sz_2.0-len_600-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_1-u_l-seed_0-fr_rate_s1      
+      None
+
+    controller_params: 
+      None
+
+      # G: 5
+      # W: 0.2
+      # max_speed: [8.0]
+
+      # kp: 4
+      # ki: 0.0
+      # kd: 0.0
+      # integral_limit: 0.0
+      # derivative_limit: 0.0
+      # max_speed: [8.0]
+      # max_acceleration: [0.0] 
+      # filter_alpha: 0.0
+
+  evader_model:
+    name: Hummingbird
+    policy: [
+            "fixed_path:hover", 
+            "fixed_path:circular", 
+            "repel",
+            "rate_s1",
+
+            "dumb",
+            ] # {fixed_path:hover, fixed_path:circular, fixed_path:lemniscate, repel, thrust, rate, velocity}
+    source_policy: [
+                  None, 
+                  None, 
+                  None,
+
+                  # e-rate_s2-rate_s2-sz_2.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_1-u_l-seed_0-fr_rate_s2,
+
+                  # train_evader_repeat,
+                  # train_evader_vclosewellnormalized,
+
+                  # e-rate_s1-rate_s0-sz_2.0-len_600-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_0-fr_rate_s0,
+
+                  train_evader_seed42,
+
+                  None,
+                  ]
+    controller_params:
+      None
+
+      # k_pursuer: 1.0     
+      # k_wall: 1.0
+      # order_den_pursuer: 3
+      # order_den_wall: 2
+      # min_wall_dist: 100.0
+      # min_pursuer_dist: 100.0
+      # max_speed: 8.0
+
+    # policy: ["rate"]
+    # source_policy: ["evasion-ppo-rate_s2-rate_s1-dif_0.0-prob_0.75-rand_0-from_rate_s1"]
+
+  do_randomization: false
+  randomization:
+    drone:
+      train:
+        mass_scale: [0.26, 1.74]
+        inertia_scale: [0.026, 1.974]
+        t2w_scale: [0.5556, 2.23]
+        f2m_scale: [0.625, 2.5]
+        drag_coef_scale: [0, 0.62]
+
+  prev_traj_steps: -1 # Include information from the last N steps of the pursuer
+  prev_evader_traj_steps: 0 # Include information from the last N steps of the evader
+
+  include_distances: true
+  include_closing_velocity: true
+  include_last_action: false
+  include_effort: false
+  include_heading_to_target: false
+
+  time_encoding: true
+
+  use_body_rates: true
+  use_timestep_reward: false
+
+  reward_timestep: 0.005 # if "use_timestep_reward" is True
+  reward_approach_weight: 0.5 
+  reward_evader_caught: 5
+  reward_body_rates_weight: 0.005
+  reward_out_of_bounds: 1 
+  reward_action_smoothness: 0.0000 
+  reward_heading_weight: 0.01 # if "include_heading_to_target" is True
+  reward_effort_weight: 0.00 # if "include_effort" is True
+  
+viewer:
+  resolution: [960, 720]
+  # resolution: [1920, 1080]
+  # resolution: [2560, 1440]
+  # resolution: [3840, 2160]
+  eye: [14., 0., 8.] # Higher FOV but harder to interpret
+  # eye: [8, 0., 6.]
+  # eye: [15, 0., 8.]
+  lookat: [0., 0., 1.]
+  auto: true
+  # eye: [-16.4, -25, -4.7]
+  # lookat: [0., 0., 5.]
+
+wandb:
+  group: ${oc.select:..task.name}
+  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}
+  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}-${oc.select:..task.pursuer_model.policy,none}-${oc.select:..task.evader_model.policy,none}-dif:${oc.select:..task.difficulty.arena_size,0.0}-from:${oc.select:..task.initialize_from,none}
+  run_name: benchmark_pursuer
+  job_type: eval # debug, eval
+  entity: alesr_kth
+  project: PEG
+  mode: online # set to 'disabled' when debugging locally
+  run_id:
+  monitor_gym: True
+  tags: 
+
+defaults:
+  - task: Pursuit
+  - algo: ppo
+  - _self_

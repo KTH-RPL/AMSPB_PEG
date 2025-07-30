@@ -1,0 +1,3 @@
+[2025-05-15 08:57:21,007][asyncio][DEBUG] - Using selector: EpollSelector
+[2025-05-15 08:57:21,861][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-05-15 08:57:21,861][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build

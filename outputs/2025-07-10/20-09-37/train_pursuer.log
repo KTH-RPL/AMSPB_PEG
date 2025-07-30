@@ -1,0 +1,192 @@
+[2025-07-10 20:09:38,164][asyncio][DEBUG] - Using selector: EpollSelector
+[2025-07-10 20:09:39,027][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-10 20:09:39,028][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'any' as 'Any'
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'bool' as 'Bool' and array 'BoolArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'bundle' as 'Bundle'
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colord[3]' as 'Color3d' and array 'Color3dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colorf[3]' as 'Color3f' and array 'Color3fArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colorh[3]' as 'Color3h' and array 'Color3hArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colord[4]' as 'Color4d' and array 'Color4dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colorf[4]' as 'Color4f' and array 'Color4fArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'colorh[4]' as 'Color4h' and array 'Color4hArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'double' as 'Double' and array 'DoubleArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'double[2]' as 'Double2' and array 'Double2Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'double[3]' as 'Double3' and array 'Double3Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'double[4]' as 'Double4' and array 'Double4Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'execution' as 'Execution'
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'float' as 'Float' and array 'FloatArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'float[2]' as 'Float2' and array 'Float2Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'float[3]' as 'Float3' and array 'Float3Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'float[4]' as 'Float4' and array 'Float4Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'frame[4]' as 'Frame' and array 'FrameArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'half' as 'Half' and array 'HalfArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'half[2]' as 'Half2' and array 'Half2Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'half[3]' as 'Half3' and array 'Half3Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'half[4]' as 'Half4' and array 'Half4Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'int' as 'Int' and array 'IntArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'int[2]' as 'Int2' and array 'Int2Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'int[3]' as 'Int3' and array 'Int3Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'int[4]' as 'Int4' and array 'Int4Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'int64' as 'Int64' and array 'Int64Array
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'matrixd[2]' as 'Matrix2d' and array 'Matrix2dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'matrixd[3]' as 'Matrix3d' and array 'Matrix3dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'matrixd[4]' as 'Matrix4d' and array 'Matrix4dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'normald[3]' as 'Normal3d' and array 'Normal3dArray
+[2025-07-10 20:09:40,121][AutoNode][DEBUG] - Defining data type 'normalf[3]' as 'Normal3f' and array 'Normal3fArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'normalh[3]' as 'Normal3h' and array 'Normal3hArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'objectId' as 'ObjectId' and array 'ObjectIdArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'path' as 'Path'
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'pointd[3]' as 'Point3d' and array 'Point3dArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'pointf[3]' as 'Point3f' and array 'Point3fArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'pointh[3]' as 'Point3h' and array 'Point3hArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'quatd[4]' as 'Quatd' and array 'QuatdArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'quatf[4]' as 'Quatf' and array 'QuatfArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'quath[4]' as 'Quath' and array 'QuathArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'string' as 'String'
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'target' as 'Target'
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordd[2]' as 'TexCoord2d' and array 'TexCoord2dArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordf[2]' as 'TexCoord2f' and array 'TexCoord2fArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordh[2]' as 'TexCoord2h' and array 'TexCoord2hArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordd[3]' as 'TexCoord3d' and array 'TexCoord3dArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordf[3]' as 'TexCoord3f' and array 'TexCoord3fArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'texcoordh[3]' as 'TexCoord3h' and array 'TexCoord3hArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'timecode' as 'Timecode' and array 'TimecodeArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'token' as 'Token' and array 'TokenArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'uchar' as 'UChar' and array 'UCharArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'uint' as 'UInt' and array 'UIntArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'uint64' as 'UInt64' and array 'UInt64Array
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'vectord[3]' as 'Vector3d' and array 'Vector3dArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'vectorf[3]' as 'Vector3f' and array 'Vector3fArray
+[2025-07-10 20:09:40,122][AutoNode][DEBUG] - Defining data type 'vectorh[3]' as 'Vector3h' and array 'Vector3hArray
+[2025-07-10 20:09:41,978][omni.kit.profiler.window][WARNING] - remove _SpanInstance.__lt__ and use insort 'key' arg instead
+[2025-07-10 20:09:45,403][git.cmd][DEBUG] - Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=None, shell=False, universal_newlines=False)
+[2025-07-10 20:09:45,472][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:09:45,645][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:09:45,648][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:09:45,826][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:09:45,847][git.cmd][DEBUG] - Popen(['git', 'cat-file', '--batch-check'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=<valid stream>, shell=False, universal_newlines=False)
+[2025-07-10 20:09:48,879][root][INFO] - Reading pursuer's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-10 20:09:48,890][root][INFO] - Reading evader's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-10 20:09:55,656][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-10 20:09:56,497][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-10 20:09:57,738][root][INFO] - Eval at 8192 steps.
+[2025-07-10 20:11:03,268][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_8192.pt
+[2025-07-10 20:11:03,281][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:11:03,479][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:11:52,542][root][INFO] - Eval at 417792 steps.
+[2025-07-10 20:12:08,382][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:12:08,567][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:12:53,800][root][INFO] - Eval at 827392 steps.
+[2025-07-10 20:13:09,289][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:13:09,478][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:13:54,383][root][INFO] - Eval at 1236992 steps.
+[2025-07-10 20:14:54,747][root][INFO] - Eval at 1646592 steps.
+[2025-07-10 20:15:11,000][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_1646592.pt
+[2025-07-10 20:15:11,019][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:15:11,230][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:15:58,462][root][INFO] - Eval at 2056192 steps.
+[2025-07-10 20:17:01,717][root][INFO] - Eval at 2465792 steps.
+[2025-07-10 20:18:53,748][root][INFO] - Eval at 2875392 steps.
+[2025-07-10 20:19:57,577][root][INFO] - Eval at 3284992 steps.
+[2025-07-10 20:20:14,275][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_3284992.pt
+[2025-07-10 20:20:14,295][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:20:14,478][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:21:02,709][root][INFO] - Eval at 3694592 steps.
+[2025-07-10 20:22:07,442][root][INFO] - Eval at 4104192 steps.
+[2025-07-10 20:23:14,557][root][INFO] - Eval at 4513792 steps.
+[2025-07-10 20:24:20,377][root][INFO] - Eval at 4923392 steps.
+[2025-07-10 20:25:24,336][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_4923392.pt
+[2025-07-10 20:25:24,356][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:25:24,544][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:26:15,008][root][INFO] - Eval at 5332992 steps.
+[2025-07-10 20:27:23,222][root][INFO] - Eval at 5742592 steps.
+[2025-07-10 20:28:30,303][root][INFO] - Eval at 6152192 steps.
+[2025-07-10 20:29:35,602][root][INFO] - Eval at 6561792 steps.
+[2025-07-10 20:29:52,845][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_6561792.pt
+[2025-07-10 20:29:52,857][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:29:53,055][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:30:43,289][root][INFO] - Eval at 6971392 steps.
+[2025-07-10 20:31:49,951][root][INFO] - Eval at 7380992 steps.
+[2025-07-10 20:33:45,817][root][INFO] - Eval at 7790592 steps.
+[2025-07-10 20:34:54,785][root][INFO] - Eval at 8200192 steps.
+[2025-07-10 20:35:11,348][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_8200192.pt
+[2025-07-10 20:35:11,367][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:35:11,556][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:36:02,159][root][INFO] - Eval at 8609792 steps.
+[2025-07-10 20:37:11,282][root][INFO] - Eval at 9019392 steps.
+[2025-07-10 20:38:20,279][root][INFO] - Eval at 9428992 steps.
+[2025-07-10 20:38:37,983][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:38:38,204][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:39:29,203][root][INFO] - Eval at 9838592 steps.
+[2025-07-10 20:40:33,856][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_9838592.pt
+[2025-07-10 20:40:33,876][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:40:34,082][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:41:26,723][root][INFO] - Eval at 10248192 steps.
+[2025-07-10 20:42:35,843][root][INFO] - Eval at 10657792 steps.
+[2025-07-10 20:43:44,977][root][INFO] - Eval at 11067392 steps.
+[2025-07-10 20:44:02,947][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:44:03,130][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:44:54,835][root][INFO] - Eval at 11476992 steps.
+[2025-07-10 20:45:13,339][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_11476992.pt
+[2025-07-10 20:45:13,359][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:45:13,555][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:46:04,372][root][INFO] - Eval at 11886592 steps.
+[2025-07-10 20:47:13,030][root][INFO] - Eval at 12296192 steps.
+[2025-07-10 20:48:18,487][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:48:18,671][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:49:11,417][root][INFO] - Eval at 12705792 steps.
+[2025-07-10 20:49:29,430][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:49:29,664][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:50:20,904][root][INFO] - Eval at 13115392 steps.
+[2025-07-10 20:50:39,059][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_13115392.pt
+[2025-07-10 20:50:39,079][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:50:39,273][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:51:30,314][root][INFO] - Eval at 13524992 steps.
+[2025-07-10 20:52:38,829][root][INFO] - Eval at 13934592 steps.
+[2025-07-10 20:53:49,756][root][INFO] - Eval at 14344192 steps.
+[2025-07-10 20:54:59,849][root][INFO] - Eval at 14753792 steps.
+[2025-07-10 20:56:06,200][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_14753792.pt
+[2025-07-10 20:56:06,221][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:56:06,449][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:56:59,565][root][INFO] - Eval at 15163392 steps.
+[2025-07-10 20:57:18,342][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:57:18,545][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:58:11,908][root][INFO] - Eval at 15572992 steps.
+[2025-07-10 20:58:31,140][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 20:58:31,347][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 20:59:24,068][root][INFO] - Eval at 15982592 steps.
+[2025-07-10 21:00:35,686][root][INFO] - Eval at 16392192 steps.
+[2025-07-10 21:00:54,710][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_16392192.pt
+[2025-07-10 21:00:54,729][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:00:54,920][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:01:47,984][root][INFO] - Eval at 16801792 steps.
+[2025-07-10 21:03:00,453][root][INFO] - Eval at 17211392 steps.
+[2025-07-10 21:04:07,435][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:04:07,614][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:05:02,212][root][INFO] - Eval at 17620992 steps.
+[2025-07-10 21:06:15,866][root][INFO] - Eval at 18030592 steps.
+[2025-07-10 21:06:35,447][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_18030592.pt
+[2025-07-10 21:06:35,467][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:06:35,664][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:07:29,076][root][INFO] - Eval at 18440192 steps.
+[2025-07-10 21:08:42,950][root][INFO] - Eval at 18849792 steps.
+[2025-07-10 21:09:55,870][root][INFO] - Eval at 19259392 steps.
+[2025-07-10 21:10:15,598][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:10:15,812][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:11:09,000][root][INFO] - Eval at 19668992 steps.
+[2025-07-10 21:12:15,142][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_19668992.pt
+[2025-07-10 21:12:15,165][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:12:15,374][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:12:59,421][root][INFO] - Final Eval at 19996672 steps.
+[2025-07-10 21:14:06,593][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-10 21:14:06,777][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-10 21:14:06,783][root][INFO] - Saved checkpoint to /home/alesr/Repositories/Omnidrones-PEG/wandb/run-20250710_200945-0hvd9l3h/files/checkpoint_final.pt

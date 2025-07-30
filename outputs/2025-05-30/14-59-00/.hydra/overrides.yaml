@@ -1,0 +1,10 @@
+- seed=0
+- task.prob_old_policy=0.0
+- render_interval=50
+- task.difficulty.arena_size=1.0
+- wandb.run_name=Pursuit-ppo-rate:prob0-repel-bench:pursuit-ppo-rate_s2-rate_s2-dif_1.0-prob_0.0-rand_0-from_rate_s1-None
+- wandb.tags=['benchmark', 'benchmark']
+- task.pursuer_model.policy=rate:prob0
+- task.pursuer_model.source_policy=pursuit-ppo-rate_s2-rate_s2-dif_1.0-prob_0.0-rand_0-from_rate_s1
+- task.evader_model.policy=['repel']
+- task.evader_model.source_policy=['None']

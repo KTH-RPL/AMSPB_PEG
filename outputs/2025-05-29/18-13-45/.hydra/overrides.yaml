@@ -1,0 +1,8 @@
+- task.prob_old_policy=0.0
+- task.difficulty.arena_size=0.0
+- wandb.run_name=Evasion-ppo-rate-fixed_path:hover-dif:0.0-prob:0.0-rand:0-from:scratch
+- wandb.tags=['baseline', 'fixed_path:hover']
+- task.evader_model.policy=rate
+- task.evader_model.source_policy=None
+- task.pursuer_model.policy=['fixed_path:hover']
+- task.pursuer_model.source_policy=[None]

@@ -1,0 +1,284 @@
+[2025-07-25 12:44:08,081][asyncio][DEBUG] - Using selector: EpollSelector
+[2025-07-25 12:44:08,846][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-25 12:44:08,846][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'any' as 'Any'
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'bool' as 'Bool' and array 'BoolArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'bundle' as 'Bundle'
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colord[3]' as 'Color3d' and array 'Color3dArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colorf[3]' as 'Color3f' and array 'Color3fArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colorh[3]' as 'Color3h' and array 'Color3hArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colord[4]' as 'Color4d' and array 'Color4dArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colorf[4]' as 'Color4f' and array 'Color4fArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'colorh[4]' as 'Color4h' and array 'Color4hArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'double' as 'Double' and array 'DoubleArray
+[2025-07-25 12:44:10,451][AutoNode][DEBUG] - Defining data type 'double[2]' as 'Double2' and array 'Double2Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'double[3]' as 'Double3' and array 'Double3Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'double[4]' as 'Double4' and array 'Double4Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'execution' as 'Execution'
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'float' as 'Float' and array 'FloatArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'float[2]' as 'Float2' and array 'Float2Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'float[3]' as 'Float3' and array 'Float3Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'float[4]' as 'Float4' and array 'Float4Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'frame[4]' as 'Frame' and array 'FrameArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'half' as 'Half' and array 'HalfArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'half[2]' as 'Half2' and array 'Half2Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'half[3]' as 'Half3' and array 'Half3Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'half[4]' as 'Half4' and array 'Half4Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'int' as 'Int' and array 'IntArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'int[2]' as 'Int2' and array 'Int2Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'int[3]' as 'Int3' and array 'Int3Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'int[4]' as 'Int4' and array 'Int4Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'int64' as 'Int64' and array 'Int64Array
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'matrixd[2]' as 'Matrix2d' and array 'Matrix2dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'matrixd[3]' as 'Matrix3d' and array 'Matrix3dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'matrixd[4]' as 'Matrix4d' and array 'Matrix4dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'normald[3]' as 'Normal3d' and array 'Normal3dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'normalf[3]' as 'Normal3f' and array 'Normal3fArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'normalh[3]' as 'Normal3h' and array 'Normal3hArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'objectId' as 'ObjectId' and array 'ObjectIdArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'path' as 'Path'
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'pointd[3]' as 'Point3d' and array 'Point3dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'pointf[3]' as 'Point3f' and array 'Point3fArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'pointh[3]' as 'Point3h' and array 'Point3hArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'quatd[4]' as 'Quatd' and array 'QuatdArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'quatf[4]' as 'Quatf' and array 'QuatfArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'quath[4]' as 'Quath' and array 'QuathArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'string' as 'String'
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'target' as 'Target'
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordd[2]' as 'TexCoord2d' and array 'TexCoord2dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordf[2]' as 'TexCoord2f' and array 'TexCoord2fArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordh[2]' as 'TexCoord2h' and array 'TexCoord2hArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordd[3]' as 'TexCoord3d' and array 'TexCoord3dArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordf[3]' as 'TexCoord3f' and array 'TexCoord3fArray
+[2025-07-25 12:44:10,452][AutoNode][DEBUG] - Defining data type 'texcoordh[3]' as 'TexCoord3h' and array 'TexCoord3hArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'timecode' as 'Timecode' and array 'TimecodeArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'token' as 'Token' and array 'TokenArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'uchar' as 'UChar' and array 'UCharArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'uint' as 'UInt' and array 'UIntArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'uint64' as 'UInt64' and array 'UInt64Array
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'vectord[3]' as 'Vector3d' and array 'Vector3dArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'vectorf[3]' as 'Vector3f' and array 'Vector3fArray
+[2025-07-25 12:44:10,453][AutoNode][DEBUG] - Defining data type 'vectorh[3]' as 'Vector3h' and array 'Vector3hArray
+[2025-07-25 12:44:12,420][omni.kit.profiler.window][WARNING] - remove _SpanInstance.__lt__ and use insort 'key' arg instead
+[2025-07-25 12:44:16,834][git.cmd][DEBUG] - Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=None, shell=False, universal_newlines=False)
+[2025-07-25 12:44:16,920][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:17,111][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:17,113][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:17,308][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:17,322][git.cmd][DEBUG] - Popen(['git', 'cat-file', '--batch-check'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=<valid stream>, shell=False, universal_newlines=False)
+[2025-07-25 12:44:20,036][__main__][INFO] - task:
+  env:
+    num_envs: 1
+    env_spacing: 6
+    max_episode_length: 600
+    arena_size: 2.0
+    final_separation: 0.5
+    max_final_separation_track: 3.0
+    render_grid_arenas: true
+    start_with_initial_velocity: false
+    vel0_std: 0.0
+    leave_spacing_between_envs: false
+    include_noise_in_observations: false
+    curriculum_pursuer_speed: false
+    z_min: 0.5
+    z_stop: 0.0
+    scale_drones: 1.0
+  sim:
+    dt: 0.016
+    substeps: 1
+    gravity:
+    - 0
+    - 0
+    - -9.81
+    replicate_physics: false
+    use_flatcache: true
+    use_gpu_pipeline: true
+    device: cuda:0
+    solver_type: 1
+    use_gpu: true
+    bounce_threshold_velocity: 0.2
+    friction_offset_threshold: 0.04
+    friction_correlation_distance: 0.025
+    enable_stabilization: true
+    gpu_max_rigid_contact_count: 524288
+    gpu_max_rigid_patch_count: 163840
+    gpu_found_lost_pairs_capacity: 4194304
+    gpu_found_lost_aggregate_pairs_capacity: 33554432
+    gpu_total_aggregate_pairs_capacity: 4194304
+    gpu_max_soft_body_contacts: 1048576
+    gpu_max_particle_contacts: 1048576
+    gpu_heap_capacity: 67108864
+    gpu_temp_buffer_capacity: 16777216
+    gpu_max_num_partitions: 8
+  name: Pursuit
+  drone_model:
+    name: Firefly
+    controller: LeePositionController
+  time_encoding: true
+  reward_effort_weight: 0.0
+  reward_action_smoothness_weight: 0.0
+  reward_motion_smoothness_weight: 0.0
+  reward_distance_scale: 1.2
+  action_transform: null
+  do_interception: true
+  prob_old_policy: 1.0
+  pursuer_model:
+    name: Hummingbird
+    policy: frpn
+    source_policy: None
+    controller_params: None
+  evader_model:
+    name: Hummingbird
+    policy:
+    - rate
+    - dumb
+    source_policy:
+    - e-rate_s2-rate_s1-sz_2.0-len_600-v0_0-br_1-prob_0.5-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_0-fr_rate_s1
+    - None
+    controller_params: None
+  do_randomization: false
+  randomization:
+    drone:
+      train:
+        mass_scale:
+        - 0.26
+        - 1.74
+        inertia_scale:
+        - 0.026
+        - 1.974
+        t2w_scale:
+        - 0.5556
+        - 2.23
+        f2m_scale:
+        - 0.625
+        - 2.5
+        drag_coef_scale:
+        - 0
+        - 0.62
+  prev_traj_steps: -1
+  prev_evader_traj_steps: 0
+  include_distances: true
+  include_closing_velocity: true
+  include_last_action: false
+  include_effort: false
+  include_heading_to_target: false
+  use_body_rates: true
+  use_timestep_reward: false
+  reward_timestep: 0.005
+  reward_approach_weight: 0.5
+  reward_evader_caught: 5
+  reward_body_rates_weight: 0.005
+  reward_out_of_bounds: 1
+  reward_action_smoothness: 0.0
+  reward_heading_weight: 0.01
+algo:
+  name: ppo
+  train_every: 32
+  ppo_epochs: 4
+  num_minibatches: 16
+  clip_param: 0.1
+  learning_rate: 0.0005
+  gamma: 0.99
+  priv_actor: false
+  priv_critic: false
+  checkpoint_path: null
+headless: true
+use_model: latest
+n_episodes: 50
+sim:
+  dt: 0.016
+  substeps: 1
+  gravity:
+  - 0
+  - 0
+  - -9.81
+  replicate_physics: false
+  use_flatcache: true
+  use_gpu_pipeline: true
+  device: cuda:0
+  solver_type: 1
+  use_gpu: true
+  bounce_threshold_velocity: 0.2
+  friction_offset_threshold: 0.04
+  friction_correlation_distance: 0.025
+  enable_stabilization: true
+  gpu_max_rigid_contact_count: 524288
+  gpu_max_rigid_patch_count: 163840
+  gpu_found_lost_pairs_capacity: 4194304
+  gpu_found_lost_aggregate_pairs_capacity: 33554432
+  gpu_total_aggregate_pairs_capacity: 4194304
+  gpu_max_soft_body_contacts: 1048576
+  gpu_max_particle_contacts: 1048576
+  gpu_heap_capacity: 67108864
+  gpu_temp_buffer_capacity: 16777216
+  gpu_max_num_partitions: 8
+env:
+  num_envs: 1
+  env_spacing: 6
+  max_episode_length: 600
+  arena_size: 2.0
+  final_separation: 0.5
+  max_final_separation_track: 3.0
+  render_grid_arenas: true
+  start_with_initial_velocity: false
+  vel0_std: 0.0
+  leave_spacing_between_envs: false
+  include_noise_in_observations: false
+  curriculum_pursuer_speed: false
+  z_min: 0.5
+  z_stop: 0.0
+  scale_drones: 1.0
+total_frames: 5000000
+max_iters: -1
+eval_interval: 50
+render_interval: 300
+save_interval: 200
+early_stop_threshold: 0.95
+early_stop_patience: -1
+seed: 0
+viewer:
+  resolution:
+  - 2560
+  - 1440
+  auto: false
+  eye:
+  - 14.0
+  - 0.0
+  - 8.0
+  lookat:
+  - 0.0
+  - 0.0
+  - 2.0
+wandb:
+  group: Pursuit
+  run_name: qualitative_trajectory
+  job_type: eval
+  entity: alesr_kth
+  project: PEG
+  mode: online
+  run_id: null
+  monitor_gym: true
+  tags: null
+
+[2025-07-25 12:44:20,190][root][INFO] - Reading pursuer's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-25 12:44:20,217][root][INFO] - Reading evader's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-25 12:44:23,415][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-25 12:44:23,426][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-25 12:44:23,561][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:23,796][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:23,800][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:23,980][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:23,983][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:24,238][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:24,240][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-25 12:44:24,464][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-25 12:44:24,466][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-07-25 12:44:24,635][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/alesr_kth/PEG/khuxa2zp/artifact/1884113214/wandb_manifest.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250725%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250725T104424Z&X-Goog-Expires=3599&X-Goog-Signature=8e84c3400feb6e7ea44f318d20caba7a787e78d25a6e3ae0442daaaaf1c819f366d9bc3818f82d1a831832d6c26684bc72c8c2a87af87e7764926f344821edc9fd13a622d68bf841097f1de024805f69dc7c0155800748016a4c281e9600ee0e400017ab06438943d289fa4da6ac04cff6501284c641eb9dadc8aaf7a3f0ff72eba4c5a8fb5775f5d7bc59d43bf02748f42f8543fa6e28f4881da9d3b4b76a831da6b59c9f7bede43aa953d2840884e0048a9147d94ff494484d320e0852ba362ecdd5e0b6be8f8ec750d7aa597a9bc2b805c27551a53aacd5fb717bd957e235921bdca4a489bd68fae2a32f18cf1f0216526c868e4f195df63e5e76ab461b1c&X-Goog-SignedHeaders=host&X-User=alesr HTTP/11" 200 343

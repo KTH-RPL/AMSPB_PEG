@@ -1,0 +1,95 @@
+[2025-06-07 10:48:29,904][asyncio][DEBUG] - Using selector: EpollSelector
+[2025-06-07 10:48:30,518][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-06-07 10:48:30,518][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'any' as 'Any'
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'bool' as 'Bool' and array 'BoolArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'bundle' as 'Bundle'
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colord[3]' as 'Color3d' and array 'Color3dArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colorf[3]' as 'Color3f' and array 'Color3fArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colorh[3]' as 'Color3h' and array 'Color3hArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colord[4]' as 'Color4d' and array 'Color4dArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colorf[4]' as 'Color4f' and array 'Color4fArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'colorh[4]' as 'Color4h' and array 'Color4hArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'double' as 'Double' and array 'DoubleArray
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'double[2]' as 'Double2' and array 'Double2Array
+[2025-06-07 10:48:38,015][AutoNode][DEBUG] - Defining data type 'double[3]' as 'Double3' and array 'Double3Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'double[4]' as 'Double4' and array 'Double4Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'execution' as 'Execution'
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'float' as 'Float' and array 'FloatArray
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'float[2]' as 'Float2' and array 'Float2Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'float[3]' as 'Float3' and array 'Float3Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'float[4]' as 'Float4' and array 'Float4Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'frame[4]' as 'Frame' and array 'FrameArray
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'half' as 'Half' and array 'HalfArray
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'half[2]' as 'Half2' and array 'Half2Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'half[3]' as 'Half3' and array 'Half3Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'half[4]' as 'Half4' and array 'Half4Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'int' as 'Int' and array 'IntArray
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'int[2]' as 'Int2' and array 'Int2Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'int[3]' as 'Int3' and array 'Int3Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'int[4]' as 'Int4' and array 'Int4Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'int64' as 'Int64' and array 'Int64Array
+[2025-06-07 10:48:38,016][AutoNode][DEBUG] - Defining data type 'matrixd[2]' as 'Matrix2d' and array 'Matrix2dArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'matrixd[3]' as 'Matrix3d' and array 'Matrix3dArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'matrixd[4]' as 'Matrix4d' and array 'Matrix4dArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'normald[3]' as 'Normal3d' and array 'Normal3dArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'normalf[3]' as 'Normal3f' and array 'Normal3fArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'normalh[3]' as 'Normal3h' and array 'Normal3hArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'objectId' as 'ObjectId' and array 'ObjectIdArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'path' as 'Path'
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'pointd[3]' as 'Point3d' and array 'Point3dArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'pointf[3]' as 'Point3f' and array 'Point3fArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'pointh[3]' as 'Point3h' and array 'Point3hArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'quatd[4]' as 'Quatd' and array 'QuatdArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'quatf[4]' as 'Quatf' and array 'QuatfArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'quath[4]' as 'Quath' and array 'QuathArray
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'string' as 'String'
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'target' as 'Target'
+[2025-06-07 10:48:38,017][AutoNode][DEBUG] - Defining data type 'texcoordd[2]' as 'TexCoord2d' and array 'TexCoord2dArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'texcoordf[2]' as 'TexCoord2f' and array 'TexCoord2fArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'texcoordh[2]' as 'TexCoord2h' and array 'TexCoord2hArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'texcoordd[3]' as 'TexCoord3d' and array 'TexCoord3dArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'texcoordf[3]' as 'TexCoord3f' and array 'TexCoord3fArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'texcoordh[3]' as 'TexCoord3h' and array 'TexCoord3hArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'timecode' as 'Timecode' and array 'TimecodeArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'token' as 'Token' and array 'TokenArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'uchar' as 'UChar' and array 'UCharArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'uint' as 'UInt' and array 'UIntArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'uint64' as 'UInt64' and array 'UInt64Array
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'vectord[3]' as 'Vector3d' and array 'Vector3dArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'vectorf[3]' as 'Vector3f' and array 'Vector3fArray
+[2025-06-07 10:48:38,018][AutoNode][DEBUG] - Defining data type 'vectorh[3]' as 'Vector3h' and array 'Vector3hArray
+[2025-06-07 10:48:40,730][omni.kit.profiler.window][WARNING] - remove _SpanInstance.__lt__ and use insort 'key' arg instead
+[2025-06-07 10:48:44,860][git.cmd][DEBUG] - Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=None, shell=False, universal_newlines=False)
+[2025-06-07 10:48:44,989][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:48:45,164][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:48:45,167][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:48:45,337][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:48:45,351][git.cmd][DEBUG] - Popen(['git', 'cat-file', '--batch-check'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=<valid stream>, shell=False, universal_newlines=False)
+[2025-06-07 10:48:49,052][root][INFO] - Reading pursuer's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-06-07 10:48:49,068][root][INFO] - Reading evader's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-06-07 10:48:52,286][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-06-07 10:48:52,331][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-06-07 10:48:52,473][matplotlib.pyplot][DEBUG] - Loaded backend tkagg version 8.6.
+[2025-06-07 10:49:04,909][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:49:05,097][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:49:05,110][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:49:05,280][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:49:05,285][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:49:05,505][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:49:06,686][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:49:06,887][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-06-07 10:49:06,892][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-06-07 10:49:07,109][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/alesr_kth/PEG/eo9b5n3o/artifact/1787948288/wandb_manifest.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250607%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250607T084902Z&X-Goog-Expires=3599&X-Goog-Signature=63b9f9136c4f0971bad9bfeb65535f88a0ba8bcc905bd6105c74f5359d5ee1e6a3021f3d9d6bf83e0467f23c36144c8e78db7e1987be435ddd5867c5e878b571913cad19db0fb66c56d552ddf5f789a66accd6646af3cad821f12917fd6c374030d970114bfa8f129294dc9545a061a46a9c8d5927a0b598efdb2edb7033138b4bb944e7f350441a5430dd4bfccf44e3ef8fe2245c610f5909305d0a730b704d914bb610a0582ae2681e16bea9bfd19d4c4f3694dabebe714ba8ea10cf43b3c211c851e3fcef270e31618f30b5914b220d514fe8de70879b1f9406def240ecfbfe2c1311e56744498418b49852641c2a0a10d080cf7506b043e8051e4fcb94c8&X-Goog-SignedHeaders=host&X-User=alesr HTTP/11" 200 346
+[2025-06-07 10:49:07,140][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-06-07 10:49:07,344][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "GET /artifactsV2/default/alesr_kth/QXJ0aWZhY3Q6MTc4Nzk0ODI4OA%3D%3D/6ea2d0f1d39e94f69019b22d72996379 HTTP/11" 307 None
+[2025-06-07 10:49:07,347][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-06-07 10:49:08,250][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-artifacts-prod/wandb_artifacts/648284726/1787948288/6ea2d0f1d39e94f69019b22d72996379?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250607%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250607T084903Z&X-Goog-Expires=3599&X-Goog-Signature=34cee0fe1afecd7543911bc9eeedfb0d3942f949890ebab0d0ced68492193b5b2d22fbd85453bbbaa8d868729094b04091609861b6e1d5ab87cc409c8dac34d6f7e50c184c364770c87f0cf9e660351a0e0db41b96f4508d8b9ed272133e20640c22db87ca46e44863eee69143781cdb6a6b88b8b111619a76f6cb25188de638c5ce6b488e847f2ce8cb2eb286460a20d56b39bae666c23606249f40502830f5443e9cf2db492771b2711070aaeb8f9bd7883bdffc2a0d6bd22654f3225d64f37b9f192637a7975ae65d3881a4c1c9a00c30bc1a4b77f7c55b3c3e38d6b67d420ae1ccabd57fc00bd783f40961159ca8c269a807d1dde13436b7608b652ef818&X-Goog-SignedHeaders=host&X-User=alesr&response-content-disposition=attachment HTTP/11" 200 1150392

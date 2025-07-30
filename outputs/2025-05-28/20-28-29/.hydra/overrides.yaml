@@ -1,0 +1,8 @@
+- task.prob_old_policy=0.75
+- task.difficulty.arena_size=1.0
+- wandb.run_name=Pursuit-ppo-rate:s0-rate-dif:1.0-prob:0.75-rand:0-from:rate
+- wandb.tags=['baseline', 'rate']
+- task.pursuer_model.policy=rate
+- task.pursuer_model.source_policy=pursuit-ppo-rate-repel-dif_1.0-prob_0.75-rand_0-from_fixed_path_circular
+- task.evader_model.policy=['fixed_path:hover', 'fixed_path:circular', 'repel', 'rate']
+- task.evader_model.source_policy=[None, None, None, 'evasion-ppo-rate-pn-dif_0.0-prob_0.75-rand_0-from_fixed_path_circular']

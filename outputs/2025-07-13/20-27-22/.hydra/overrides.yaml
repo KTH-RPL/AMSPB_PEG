@@ -1,0 +1,2 @@
+- task.include_closing_velocity=False
+- wandb.run_name=train_evader_noVclose

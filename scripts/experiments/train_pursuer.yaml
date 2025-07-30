@@ -1,0 +1,136 @@
+# hydra.job.chdir: false
+hydra:
+  searchpath:
+    # see https://hydra.cc/docs/advanced/search_path/
+    # - file://../../cfg
+    - file://cfg
+
+headless: true
+use_model: "latest" # latest, best
+
+sim: ${task.sim}
+env: ${task.env}
+
+total_frames: 15_000_000
+max_iters: -1
+eval_interval: 50
+render_interval: 300 # must be divisible by eval_interval
+save_interval: 200
+early_stop_threshold: 0.95
+early_stop_patience: 3
+seed: 0
+
+algo:
+  name: ppo
+  clip_param: 0.1
+  learning_rate: 5e-4
+  priv_critic: false
+  gamma: 0.99
+
+  # name: ppo_rnn
+  # rnn: gru
+
+task:
+  name: Pursuit
+  do_interception: true
+
+  prob_old_policy: 0.66
+
+  env:
+    num_envs: 256
+    arena_size: 2.0
+    max_episode_length: 600
+    final_separation: 0.5
+    max_final_separation_track: 3.0 # if separation at the end is larger than this, negative reward for tracking
+    render_grid_arenas: true
+    start_with_initial_velocity: false
+    vel0_std: 0.15 # only if start_with_initial_velocity=True
+    leave_spacing_between_envs: true
+    include_noise_in_observations: false
+    z_min: 0.5 # min height of the arena
+    z_stop: 0.0 # below z_stop, episode is terminated
+    scale_drones: 1.0
+
+  pursuer_model: 
+    name: Hummingbird
+    policy: rate # {velocity, rate, thrust}
+    source_policy: None
+    controller_params: None
+
+  evader_model:
+    name: Hummingbird
+    policy: [
+      'fixed_path:hover', 
+      'fixed_path:circular', 
+      'repel', 
+      # 'rate'
+      ]
+    source_policy: [
+      None, 
+      None, 
+      None, 
+      # e-rate_s0-rate-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-u_l-seed_0-fr_rate-n4
+      # e-rate-pid-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-u_l-seed_0-fr_scratch-n4
+      ]
+    controller_params: None
+
+  do_randomization: false
+  randomization:
+    drone:
+      train:
+        mass_scale: [0.26, 1.74]
+        inertia_scale: [0.026, 1.974]
+        t2w_scale: [0.5556, 2.23]
+        f2m_scale: [0.625, 2.5]
+        drag_coef_scale: [0, 0.62]
+
+  prev_traj_steps: -1 # Include information from the last N steps of the pursuer
+  prev_evader_traj_steps: 0 # Include information from the last N steps of the evader
+
+  include_distances: true
+  include_closing_velocity: true
+  include_last_action: false
+  include_effort: false
+  include_heading_to_target: false
+
+  time_encoding: true
+
+  use_body_rates: true
+  use_timestep_reward: false
+
+  reward_timestep: 0.000 # if "use_timestep_reward" is True
+  reward_approach_weight: 0.5 
+  reward_evader_caught: 10
+  reward_body_rates_weight: 0.005
+  reward_out_of_bounds: 0.1 
+  reward_action_smoothness: 0.0000 
+  reward_heading_weight: 0.00 # if "include_heading_to_target" is True
+  reward_effort_weight: 0.000 # if "include_effort" is True
+  
+viewer:
+  resolution: [960, 720]
+  # eye: [30., 30., 30.] # Higher FOV but harder to interpret
+  # eye: [8, 0., 6.]
+  auto: true
+  eye: [14., 0., 8.] # Automatically set by the environment based on the size
+  lookat: [0., 0., 1.]
+
+wandb:
+  group: ${oc.select:..task.name}
+  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}
+  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}-${oc.select:..task.pursuer_model.policy,none}-${oc.select:..task.evader_model.policy,none}-dif:${oc.select:..task.difficulty.arena_size,0.0}-from:${oc.select:..task.initialize_from,none}
+  run_name: train_pursuer # train_pursuer
+  job_type: train
+  entity: alesr_kth
+  project: PEG
+  mode: online # set to 'disabled' when debugging locally
+  run_id:
+  monitor_gym: True
+  tags: 
+
+defaults:
+  - task: Pursuit
+  - algo:
+      ppo 
+      # ppo_gru
+  - _self_

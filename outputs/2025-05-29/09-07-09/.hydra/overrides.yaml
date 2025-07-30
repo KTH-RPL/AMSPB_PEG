@@ -1,0 +1,7 @@
+- headless=True
+- render_interval=-1
+- task.prob_old_policy=0.0
+- task.pursuer_model.policy=['rate:s0']
+- task.pursuer_model.source_policy=['pursuit-ppo-rate_s0-rate-dif_1.0-prob_0.75-rand_0-from_rate']
+- task.evader_model.policy=rate:s0
+- task.evader_model.source_policy=evasion-ppo-rate_s0-rate_s0-dif_0.0-prob_0.75-rand_0-from_rate

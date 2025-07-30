@@ -1,0 +1,9 @@
+- seed=0
+- task.prob_old_policy=0.0
+- task.difficulty.arena_size=1.0
+- wandb.run_name=Pursuit-ppo-fixed_path:hover-fixed_path:hover-bench:None-None
+- wandb.tags=['baseline', 'benchmark']
+- task.pursuer_model.policy=fixed_path:hover
+- task.pursuer_model.source_policy=None
+- task.evader_model.policy=['fixed_path:hover']
+- task.evader_model.source_policy=['None']

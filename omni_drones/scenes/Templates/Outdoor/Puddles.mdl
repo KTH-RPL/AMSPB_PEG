@@ -1,0 +1,789 @@
+/*****************************************************************************
+*     Copyright 1986-2017 NVIDIA Corporation. All rights reserved.
+******************************************************************************
+
+ MDL MATERIALS ARE PROVIDED PURSUANT TO AN END USER LICENSE  AGREEMENT,
+ WHICH WAS ACCEPTED IN ORDER TO GAIN ACCESS TO THIS FILE.  IN PARTICULAR, 
+ THE MDL MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
+ COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL NVIDIA
+ CORPORATION BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING
+ ANY GENERAL, SPECIAL,  INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, 
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF 
+ THE USE OR INABILITY TO USE THE MDL MATERIALS OR FROM OTHER DEALINGS IN 
+ THE MDL MATERIALS.
+*/
+//notnv/epicgames/UE4/carbon/SourceArt/Omniverse/MDL/OmniPBR.mdl
+
+
+//fixes: customIOR, AO mapping JIC, added bsdf dropdown
+//fixes 10/12/2018 - converted metallic Bool into float for map.
+//jjordan 10/18: disabled bsdf_type. imho makes material complicated without real benefit, but final call is for Daniela since she knows feedback
+//jjordan 10/18: removed all ternaries on material structs and substituted with ternaries on bsdf. this works around https://moskito.nvidia-arc.com/show_bug.cgi?id=18719 but at the same time is shorter then original code
+//danielaf  10/24/18: replacing ifm annotation with updated 1.4 anno for parameter ui grouping
+
+//danielaf  10/24/18: removing all Booleans and using floats instead for dynamic material in RTX_OV
+//ddanielaf  10/24/18: adding explicit texture input parameter and texture enable parameters for RTX_OV OMN-812 - unless tex::texture_isvalid implemented in RTX_OV
+//danielaf  10/24/18: removed anisotropy,backscatter, thinfilms, custom_bsdf, abbe_number(things that don't seem to have any effect in RTX_OV ATM)
+
+
+//danielaf 11/2/2018:  omni flex trimmed way down
+//danielaf 11/06/2018: switch enables to bool! :D
+mdl 1.3;
+//switched back to 1.3, getting "mdl 1.4 not supported" from my iviewer version 2017 1.4 296300.6298
+//switched to 1.2 - getting normalmap_texture parameter type error when switching to 1.4 - still troubleshooting
+
+//azoellner 1/18/19 - promoting staging to the real material, removed "Staging" from all names
+//azoellner 2/11/19 modified display name sand group names to match up with known Sol master
+//rraab     28/2/19 Changed surface reflectance behavior to match the UE4 model
+//azoellner 06-15-2020 modifed to use as a base include dependencies test material.
+
+import df::*;
+import state::*;
+import math::*;
+import base::*;
+import tex::*;
+import anno::*;
+
+
+
+uniform float4x4 rotation_translation_scale(
+    uniform float3 rotation = float3(0.)
+        [[ anno::description("Rotation applied to every UVW coordinate") ]],
+    uniform float3 translation = float3(0.)
+        [[ anno::description("Offset applied to every UVW coordinate") ]],
+    uniform float3 scaling = float3(1.)
+        [[ anno::description("Scale applied to every UVW coordinate") ]]
+)
+[[
+    anno::description("Construct transformation matrix from Euler rotation, translation and scale"),
+    anno::hidden()
+]]
+{
+    float4x4 scale =
+        float4x4(scaling.x        , 0.               , 0.               , 0.,
+                 0.               , scaling.y        , 0.               , 0.,
+                 0.               , 0.               , scaling.z        , 0.,
+                 translation.x, translation.y, translation.z, 1.);
+
+    float3 s = math::sin(rotation);
+    float3 c = math::cos(rotation);
+    float4x4 rotate =
+        float4x4(  c.y*c.z ,  -c.x*s.z + s.x*s.y*c.z ,  s.x*s.z + c.x*s.y*c.z , 0.0,
+                   c.y*s.z ,   c.x*c.z + s.x*s.y*s.z , -s.x*c.z + c.x*s.y*s.z , 0.0,
+                  -s.y     ,   s.x*c.y               ,  c.x*c.y               , 0.0,
+                   0.     ,   0                   ,  0                   , 1.);
+
+    return   scale*rotate;
+}
+
+// Returns the normal n in tangent space, given n is in internal space.
+float3 transform_internal_to_tangent(float3 n)
+{
+    return
+        n.x* float3(state::texture_tangent_u(0).x,state::texture_tangent_v(0).x,state::normal().x)+
+        n.y* float3(state::texture_tangent_u(0).y,state::texture_tangent_v(0).y,state::normal().y)+
+        n.z* float3(state::texture_tangent_u(0).z,state::texture_tangent_v(0).z,state::normal().z);
+}
+
+// Returns the normal n in internal space, given n is in tangent space.
+float3 transform_tangent_to_internal(float3 n)
+{
+    return  state::texture_tangent_u(0) * n.x +
+            state::texture_tangent_v(0) * n.y +
+            state::normal() * n.z ;
+}
+
+// Returns a normal by adding a detail normal to a global normal.
+export float3 add_detail_normal(float3 nd = state::normal(), float3 n = state::normal())
+{
+    // http://blog.selfshadow.com/publications/blending-in-detail/
+    float3 n_t = transform_internal_to_tangent(n);
+    float3 nd_t = transform_internal_to_tangent(nd);
+
+    n_t=n_t + float3(0.,0.,1.);
+    nd_t = nd_t *  float3(-1.,-1.,1.);
+
+    n = n_t*math::dot(n_t, nd_t)/n_t.z - nd_t;
+    return math::normalize(transform_tangent_to_internal(n));
+}
+
+
+base::texture_return multiply_colors(
+    color color_1 = color(1.0, 1.0, 1.0),
+    color color_2 = color(.5, .5, .5),
+	float weight  = 1.0
+) [[ 
+    anno::hidden() 
+]]
+{
+    return base::blend_color_layers(
+                layers: base::color_layer[](
+                    base::color_layer(
+                        layer_color:    color_2,
+                        weight:         weight,
+                        mode:           base::color_layer_multiply
+                        )),
+                base: color_1
+    );
+}
+
+
+base::texture_return add_colors(
+    color color_1 = color(.5, .5, .5),
+    color color_2 = color(.5, .5, .5),
+	float weight  = 1.0
+) [[ 
+    anno::hidden(), 
+	anno::unused()
+]]
+{
+    return base::blend_color_layers(
+                layers: base::color_layer[](
+                    base::color_layer(
+                        layer_color:    color_2,
+                        weight:         weight,
+                        mode:           base::color_layer_add
+                        )),
+                base: color_1
+    );
+}
+
+base::texture_return blend_colors(
+    color color_1 = color(1.0, 1.0, 1.0),
+    color color_2 = color(.5, .5, .5),
+	float weight  = 1.0
+) [[ 
+    anno::hidden(),
+	anno::unused()
+]]
+{
+    return base::blend_color_layers(
+                layers: base::color_layer[](
+                    base::color_layer(
+                        layer_color:    color_2,
+                        weight:         weight,
+                        mode:           base::color_layer_blend
+                        )),
+                base: color_1
+    );
+}
+
+
+
+export material Puddles(
+	uniform texture_2d diffuse_texture = texture_2d("./Puddles/Concrete_Damaged_pjube_Albedo.jpg", ::tex::gamma_srgb)
+	[[
+		anno::display_name("Albedo"),
+		anno::in_group("Textures")
+	]],
+	float albedo_desaturation = float(0.085714f)
+	[[
+		anno::display_name("Albedo_Desaturation"),
+		anno::soft_range(float(0.0f), float(1.0f)),
+		anno::description("Desaturates the diffuse color"),
+		anno::in_group("Adjustments")
+	]],
+	float albedo_add = float(0.0)
+	[[
+		anno::display_name("Albedo_Add"),
+		anno::soft_range(float(-1.0f), float(1.0f)),
+		anno::description("Adds a constant value to the diffuse color "),
+		anno::in_group("Adjustments")
+	]],
+	
+	float albedo_brightness = float(1.0)
+	[[
+		anno::display_name("Albedo_Brightness"),
+		anno::soft_range(float(0.0f), float(1.0f)),
+		anno::description("Multiplier for the diffuse color "),
+		anno::in_group("Adjustments")
+	]],
+	uniform bool enable_diffuse_tint = true
+	[[
+		anno::display_name("Color_Tint"),
+		anno::description("When set to true, this enables the tinting of the diffuse color"),
+		anno::in_group("Features")
+	]],
+	color diffuse_tint = color(0.255208f, 0.255208f, 0.255208f)
+	[[
+		anno::display_name("Color_Overlay"),
+		anno::description("When enabled, this color value is multiplied over the final albedo color"),
+		//ui_position(1)
+		anno::in_group("Adjustments")
+	]],
+	
+	
+	// -------------------- AO Group ----------------------
+	uniform texture_2d ao_texture         = texture_2d("./Puddles/Concrete_Damaged_pjube_AO.jpg", ::tex::gamma_srgb)
+	[[
+		anno::display_name("Ambient Occlusion Texture"),
+		anno::description("The Ambient Occlusion texture for the material"),
+		anno::in_group("Textures")
+	]],
+	float ao_to_diffuse = 0.0
+	[[
+		anno::display_name("AO to Diffuse"),
+		anno::description("Controls the amount of ambient occlusion multiplied into the diffuse color channel"),
+		anno::in_group("Adjustments")
+	]],
+	
+	// -------------------- ORM ----------------------
+	uniform texture_2d ORM_texture = texture_2d()
+	[[
+		anno::display_name("ORM Texture"),
+		anno::description("Texture that hae Occlusion, Roughness and Metallic map stored in the respective r, g and b channels"),
+		anno::in_group("Textures")
+	]],
+	uniform bool enable_ORM_texture = false
+	[[
+		anno::display_name("Enable ORM Texture"),
+		anno::description("When True the ORM texture will be used to extract the Occlusion, Roughness and Metallic Map"),
+		anno::in_group("Features")
+	]],
+	
+	
+	// -------------------- REFLECTIVITY ----------------------
+	
+	
+	
+	float reflection_roughness_constant = 0.390476f
+	[[
+		anno::display_name("Roughness_Amt"),
+		anno::hard_range(0.0,1.),
+		anno::description("Higher roughness values lead to more blurry reflections"),
+		anno::in_group("Adjustments")
+	]],
+	
+	uniform texture_2d reflectionroughness_texture = texture_2d("./Puddles/Concrete_Damaged_pjube_Roughness.jpg", ::tex::gamma_srgb)
+	[[
+		anno::display_name("Roughness"),
+		anno::in_group("Textures")
+	]],
+	
+	float reflection_roughness_texture_influence = 0.838096f
+	[[
+		anno::display_name("Roughness_MapInfluence"),
+		anno::hard_range(0.0, 1.),
+		anno::description("Blends between the constant value and the lookup of the roughness texture"),
+		anno::in_group("Adjustments")
+	]],
+	
+	
+	float metallic_constant = 0.f
+	[[
+		anno::display_name("Metallic"),
+		anno::hard_range(0.0,1.),
+		anno::description("Metallic Material"),
+		anno::in_group("Adjustments")
+	]],
+	uniform texture_2d metallic_texture = texture_2d()
+	[[
+		anno::display_name("Metallic_Mask"),
+		anno::in_group("Textures")
+	]], 
+	float metallic_texture_influence = 0.0f
+	[[
+		anno::display_name("Metallic_MapInfluence"),
+		anno::hard_range(0.0, 1.),
+		anno::description("Blends between the constant value and the lookup of the metallic texture"),
+		anno::in_group("Adjustments")
+	]],
+	
+	float specular_level = float(0.5)
+	[[
+		anno::display_name("Specular"),
+		anno::soft_range(float(0.0f), float(1.0f)),
+		anno::description("The specular level (intensity) of the material"),
+		anno::in_group("Adjustments")
+	]],
+	
+	// Opacity Map
+	uniform texture_2d opacity_texture = texture_2d()
+	[[
+		anno::display_name("Opacity_Texture"),
+		anno::in_group("Textures")
+	]],
+	uniform bool enable_opacity_texture = false
+	[[
+		anno::display_name("Enable Opacity Texture"),
+		anno::description("Enables or disbales the usage of the opacity texture map"),
+		anno::in_group("Features")
+	]],
+	
+	
+	
+	// -------------------- EMISSIVE ----------------------
+	
+	
+	
+	uniform bool enable_emission = false
+	[[
+		anno::display_name("Enable Emission"),
+		anno::description("Enables the emission of light from the material"),
+		anno::in_group("Emissive")
+	]],
+	
+	color emissive_color    = color(1.0, 0.1, 0.1)
+	[[
+		anno::display_name("Emissive Color"),
+		anno::description("The emission color"),
+		anno::in_group("Emissive")
+	]],
+	uniform texture_2d emissive_mask_texture    = texture_2d()
+	[[
+		anno::display_name("Emissive Texture"),
+		anno::description("The texture masking the emissive color"),
+		anno::in_group("Emissive")
+	]],
+	uniform float emissive_intensity = 40.f
+	[[
+		anno::display_name("Intensity"),    
+		anno::description("Intensity of the emission"),
+		anno::in_group("Emissive")
+	]],
+	
+	// -------------------- Puddles --------------------
+	uniform bool enable_puddles = true
+	[[
+		anno::display_name("Enable Puddles"),
+		anno::description("Enables the puddles on the surface"),
+		anno::in_group("Features")
+	]],
+	uniform texture_2d puddles_mask_texture    = texture_2d("./Puddles/PuddleMask.tga", ::tex::gamma_srgb)
+	[[
+		anno::display_name("Puddles Mask"),
+		anno::description("The texture for masking out the puddles"),
+		anno::in_group("Textures")
+	]],
+	
+	uniform float puddles_reflection_roughness = float(0.0)
+	[[
+		anno::display_name("Puddles Reflection Roughness"),
+		anno::description("The Roughness of the reflection in the puddles. Should in fact be 0 to have crisp and clear reflections"),
+		anno::in_group("Features")
+	]],
+	uniform float puddles_tiling = float(.7068)
+	[[
+		anno::display_name("Puddles Tiling"),
+		anno::description("The tiling of the puddles texture"),
+		anno::in_group("Features")
+	]],
+	
+	
+	// -------------------- Normal ----------------------
+	
+	
+	
+	uniform bool enable_normalmap_texture = true
+	[[
+		anno::display_name("Use Normal Texture"),
+		anno::description("Enables the usage of the normalmap texture"),
+		anno::in_group("Features")
+	]],
+	uniform texture_2d normalmap_texture = texture_2d("./Puddles/Concrete_Damaged_pjube_Normal.jpg", ::tex::gamma_linear)
+	[[
+		anno::display_name("Normal Texture"),
+		anno::description("Enables the usage of the normalmap texture"),
+		anno::in_group("Textures")
+	]], 
+	
+	uniform float bump_factor = 1.4f
+	[[
+		anno::display_name("Normal_Detail_Intenstity"),
+		anno::description("Strength of normal."),
+			anno::in_group("Adjustments")
+	]],
+	
+	
+	uniform bool enable_detail_normalmap_texture = false
+	[[
+		anno::display_name("Use Detail Normal Texture"),
+		anno::in_group("Features"),
+		anno::description("Enables the usage of the detail normalmap texture")
+	]],
+	uniform texture_2d detail_normalmap_texture = texture_2d()
+	[[
+		anno::display_name("Detail Normal Texture"),
+		anno::in_group("Textures")
+	]],
+	uniform float detail_bump_factor = .3f
+	[[
+		anno::display_name("Detail Bump Strength"),
+		anno::in_group("Adjustments"),
+		anno::description("Strength of the detail normal")
+	]],
+	
+	// UV Projection Group
+	uniform bool project_uvw = false
+	[[
+		anno::display_name("Project UVW coordinates"),
+		anno::description("When enabled, UV coordinates will be generated by projecting them from a coordinate system"),
+		anno::in_group("UV")
+	]],
+	uniform bool world_or_object = false
+	[[
+		anno::display_name("Use World Space"),
+		anno::description("When set to 'true' uses world space for projection, when 'false' object space is used"),
+		anno::in_group("UV")
+	]],
+	
+	uniform int uv_space_index =  0
+	[[
+		anno::display_name("UV Space Index"),
+		anno::description("UV Space Index."),
+		anno::in_group("UV"),
+		anno::hard_range(0, 3)
+	]],
+	
+	// Adjustments Group
+	uniform float2 texture_translate =  float2(0.0f)
+	[[
+		anno::display_name("Translate"),
+		anno::description("Controls the position of the texture."),
+		anno::in_group("UV")
+	]],
+	uniform float texture_rotate =  0.f
+	[[
+		anno::display_name("Rotate"),
+		anno::description("Rotates angle of the texture in degrees."),
+		anno::in_group("UV")
+	]],
+	uniform float2 texture_scale =  float2(1.0f)
+	[[
+		anno::display_name("Scale"),
+		anno::description("Larger numbers increase the size."),
+		anno::in_group("UV")
+	]],
+	
+	uniform float2 detail_texture_translate =  float2(0.0f)
+	[[
+		anno::display_name("Detail Translate"),
+		anno::description("Controls the position of the detail texture."),
+		anno::in_group("UV")
+	]],
+	uniform float detail_texture_rotate =  0.f
+	[[
+		anno::display_name("Detail Rotate"),
+		anno::description("Rotates angle of the detail texture in degrees."),
+		anno::in_group("UV")
+	]],
+	uniform float2 detail_texture_scale =  float2(1.0f)
+	[[
+		anno::display_name("Detail Scale"),
+		anno::description("Larger numbers increase the size of the detail texture"),
+		anno::in_group("UV")
+	]]
+	
+
+	/*
+	// TODO IMPLEMENT
+	uniform bool cubic_or_triplanar = true
+	[[
+		anno::display_name("Cubic or Triplanar Projection"),
+		anno::description("When set to 'true' uses a cubic projection, when 'false' a triplanar projection is used"),
+		anno::in_group("UV Projection")
+	]]
+	*/
+	
+	/*
+	uniform base::projection_mode projection_type = base::projection_planar 
+    [[
+        anno::display_name("Projection"),
+		anno::in_group("UV Projection")
+    ]],
+    uniform base::texture_coordinate_system coordinate_system =  base::texture_coordinate_object 
+    [[
+        anno::display_name("Projection"),
+		anno::in_group("UV Projection")
+    ]]
+	*/
+) 
+[[
+	anno::display_name("Puddles PBR"),
+	anno::description("PBR Material - MDL - Sol"),
+	anno::author("NVIDIA CORPORATION"), 
+	anno::key_words(string[]("omni", "PBR", "generic"))
+]]
+ = let{
+	//TODO: Implement switch between cubic and triplanar projection
+	//base::projection_mode project = cubic_or_triplanar ? base::projection_cubic : base::projection_tri_planar;
+	
+	base::texture_coordinate_system the_system = world_or_object ? base::texture_coordinate_world : base::texture_coordinate_object;
+	
+	
+	base::texture_coordinate_info uvw = project_uvw ? 
+											base::coordinate_projection(
+												coordinate_system: the_system,
+												texture_space: uv_space_index,
+												projection_type: base::projection_cubic ) :
+											base::coordinate_source(
+												coordinate_system: base::texture_coordinate_uvw,
+												texture_space: uv_space_index
+	);
+	
+	 /*
+	base::texture_coordinate_info uvw_space = base::coordinate_source(
+								coordinate_system: base::texture_coordinate_uvw,
+								texture_space: uv_space_index
+	);
+	
+	base::texture_coordinate_info uvw = project_uvw ?
+		// if true, use cubic proejection either in world or object space
+		base::coordinate_projection(
+				coordinate_system: system,
+				projection_type:  base::projection_cubic) :
+		// otherwise use UV space from given uv_space_index
+		base::coordinate_source(
+				coordinate_system: base::texture_coordinate_uvw,
+				texture_space: uv_space_index
+	);
+	*/
+
+											
+											
+	
+	base::texture_coordinate_info  transformed_uvw =  base::transform_coordinate(
+								transform: rotation_translation_scale(
+									scaling: float3(texture_scale.x, texture_scale.y, 1.0),
+									rotation: float3(0.0, 0.0, texture_rotate/180.*math::PI ),
+									translation: float3(texture_translate.x, texture_translate.y, 0.0)
+								),
+								coordinate: uvw
+	);
+	
+	
+	base::texture_coordinate_info  detail_transformed_uvw =  base::transform_coordinate(
+								transform: rotation_translation_scale(
+									scaling: float3(detail_texture_scale.x, detail_texture_scale.y, 1.0),
+									rotation: float3(0.0, 0.0, detail_texture_rotate/180.*math::PI ),
+									translation: float3(detail_texture_translate.x, detail_texture_translate.y, 0.0)
+								),
+								coordinate: uvw
+	);
+	
+	base::texture_coordinate_info  puddles_transformed_uvw =  base::transform_coordinate(
+								transform: rotation_translation_scale(
+									scaling: float3(puddles_tiling, puddles_tiling, 1.0),
+									rotation: float3(0.0, 0.0, 0.0 ),
+									translation: float3(0.0, 0.0, 0.0)
+								),
+								coordinate: uvw
+	);
+	
+	
+	// -------------------- ORM Handling -------------------- 
+	float3 ORM_lookup = tex::lookup_float3(
+						tex: ORM_texture,
+						coord: float2(transformed_uvw.position.x, transformed_uvw.position.y)
+	);
+	 
+	base::texture_return roughness_lookup = base::file_texture(
+							texture: reflectionroughness_texture,
+							mono_source: base::mono_average,
+							uvw: transformed_uvw,
+							clip: false		
+	);
+	
+	
+	float roughness_selection = enable_ORM_texture ? ORM_lookup.y : roughness_lookup.mono;
+	 
+	float reflection_roughness_1 =  math::lerp(reflection_roughness_constant, roughness_selection, reflection_roughness_texture_influence);
+ 
+	// Puddle mask lookup
+	base::texture_return puddles_mask_lookup = base::file_texture(
+							texture: puddles_mask_texture,
+							color_offset: color(0.0),
+							color_scale: color(1.0),
+							mono_source: base::mono_luminance,
+							uvw: puddles_transformed_uvw,
+							clip: false		
+	);
+	
+	
+	// Diffuse Color Lookup and AO
+	base::texture_return base_lookup = base::file_texture(
+							texture: diffuse_texture,
+							color_offset: color(albedo_add),
+							color_scale: color(albedo_brightness),
+							mono_source: base::mono_luminance,
+							uvw: transformed_uvw,
+							clip: false		
+	);
+	
+	base::texture_return ao_lookup = base::file_texture(
+							texture: ao_texture,
+							color_offset: color(0.0, 0.0, 0.0),
+							color_scale: color(1.0, 1.0, 1.0),
+							mono_source: base::mono_average,
+							uvw: transformed_uvw,
+							clip: false		
+	);
+	
+	
+	
+	// checking whether the ORM texture or the AO texture is supposed to be used
+	color ao_color = enable_ORM_texture ? color(ORM_lookup.x) : ao_lookup.tint;
+	
+	color desaturated_base = math::lerp(base_lookup.tint, color(base_lookup.mono), albedo_desaturation);
+	
+	//color diffuse_color =  enable_diffuse_texture == true ? desaturated_base : diffuse_color_constant;
+	
+	color diffuse_color = desaturated_base ;
+	
+	color tinted_diffuse_color = enable_diffuse_tint ? multiply_colors(diffuse_color, diffuse_tint, 1.0).tint : diffuse_color;
+	
+	color tinted_diffuse_color_puddles = enable_puddles ? math::lerp(tinted_diffuse_color, multiply_colors(tinted_diffuse_color, color(0.65), 1.0).tint, puddles_mask_lookup.mono) : tinted_diffuse_color;
+	
+	color base_color = multiply_colors(
+								color_1: tinted_diffuse_color_puddles,
+								color_2: ao_color,
+								weight:  ao_to_diffuse
+	).tint;
+	
+	base::texture_return metallic_lookup = base::file_texture(
+						texture: metallic_texture,
+						color_offset: color(0.0, 0.0, 0.0),
+						color_scale: color(1.0, 1.0, 1.0),
+						mono_source: base::mono_average,
+						uvw: transformed_uvw,
+						clip: false		
+	);
+					
+	// Choose between ORM or metallic map
+	float metallic_selection = enable_ORM_texture ? ORM_lookup.z : metallic_lookup.mono;
+	
+	// blend between the constant metallic value and the map lookup
+	float metallic =  math::lerp(metallic_constant, metallic_selection, metallic_texture_influence);
+	
+	bsdf diffuse_bsdf = df::diffuse_reflection_bsdf(
+		tint: base_color,
+		roughness: 0.f
+	);
+
+	bsdf ggx_smith_bsdf = df::microfacet_ggx_smith_bsdf(
+		roughness_u: enable_puddles ? 
+						math::lerp(reflection_roughness_1 * reflection_roughness_1, puddles_reflection_roughness, puddles_mask_lookup.mono) :
+						reflection_roughness_1 * reflection_roughness_1,
+		//roughness_v: reflection_roughness_1 * reflection_roughness_1, 0.06,
+		tint: color(1.0, 1.0, 1.0),
+		mode: df::scatter_reflect
+	);
+	
+	
+	bsdf custom_curve_layer_bsdf = df::custom_curve_layer(
+		normal_reflectivity: 0.08,		
+		grazing_reflectivity: 1.0,
+		exponent:	5.0,
+		weight:		specular_level,
+		layer: ggx_smith_bsdf,
+		base:	diffuse_bsdf
+	);
+	
+	bsdf directional_factor_bsdf = df::directional_factor(
+		normal_tint:  base_color,
+		grazing_tint: base_color,     //color(1.0, 1.0, 1.0),
+		exponent: 3.0f,
+		base: ggx_smith_bsdf
+	);
+	
+	bsdf final_bsdf = df::weighted_layer(
+        weight: metallic,
+        layer:	directional_factor_bsdf,
+		base:	custom_curve_layer_bsdf
+	);
+	
+	// Emission
+	color emissive_mask = base::file_texture(
+							texture: emissive_mask_texture,
+							color_offset: color(0.0, 0.0, 0.0),
+							color_scale: color(1.0, 1.0, 1.0),
+							mono_source: base::mono_average,
+							uvw: transformed_uvw,
+							clip: false		
+	).tint;
+	
+	
+	// Normal calculations
+	float3 the_normal =  enable_normalmap_texture == true? base::tangent_space_normal_texture(
+											texture:        normalmap_texture,
+											factor:         bump_factor,
+											uvw:            transformed_uvw
+											//flip_tangent_u: false,
+											//flip_tangent_v: true
+							): state::normal() ;				
+	
+	
+	float3 detail_normal = enable_detail_normalmap_texture ? base::tangent_space_normal_texture(
+											texture:        detail_normalmap_texture,
+											factor:         detail_bump_factor,
+											uvw:            detail_transformed_uvw
+											//flip_tangent_u: flip_tangent_u,
+											//flip_tangent_v: flip_tangent_v
+							): state::normal() ;
+
+	// Add detail normal when enabled
+	float3 detail_normals = enable_detail_normalmap_texture ? add_detail_normal(detail_normal, the_normal) : the_normal;
+	
+	// Blend in the puddles when enabled
+	float3 final_normal = enable_puddles ? math::lerp(detail_normals , state::normal(), puddles_mask_lookup.mono) : detail_normals;
+	
+	// Opacity Map
+	float opacity_value = enable_opacity_texture ? base::file_texture(
+                                                texture: 	 opacity_texture,
+												mono_source: base::mono_average,
+                                                uvw: 		 transformed_uvw
+							).mono : 1.0;
+	
+							
+} in material(
+	surface: material_surface(
+		scattering: final_bsdf,
+		emission:  material_emission (
+            df::diffuse_edf(),
+            intensity: enable_emission? emissive_color * emissive_mask * color(emissive_intensity) : color(0)
+		)
+	),
+	geometry: material_geometry(
+		normal: final_normal,
+		cutout_opacity: opacity_value
+	)
+);
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

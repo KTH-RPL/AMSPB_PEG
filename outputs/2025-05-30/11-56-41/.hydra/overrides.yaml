@@ -1,0 +1,7 @@
+- headless=True
+- render_interval=-1
+- task.prob_old_policy=0.0
+- task.evader_model.policy=velocity
+- task.evader_model.source_policy=evasion-ppo-velocity-fixed_path_circular-dif_0.0-prob_0.75-rand_0-from_fixed_path_hover
+- task.pursuer_model.policy=['fixed_path:circular']
+- task.pursuer_model.source_policy=[None]

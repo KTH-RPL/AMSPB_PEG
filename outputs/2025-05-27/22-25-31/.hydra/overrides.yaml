@@ -1,0 +1,7 @@
+- task.prob_old_policy=0.75
+- wandb.run_name=Pursuit-ppo-thrust-repel-dif:1.0-from:scratch
+- wandb.tags=['baseline', 'repel']
+- task.pursuer_model.policy=thrust
+- task.pursuer_model.source_policy=pursuit-ppo-thrust-fixed_path_circular-dif_1.0-from_scratch
+- task.evader_model.policy=['fixed_path:hover', 'fixed_path:circular', 'repel']
+- task.evader_model.source_policy=[None, None, None]

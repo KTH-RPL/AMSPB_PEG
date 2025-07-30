@@ -1,0 +1,10 @@
+- seed=0
+- task.prob_old_policy=0.0
+- render_interval=50
+- task.difficulty.arena_size=1.0
+- wandb.run_name=Pursuit-ppo-velocity-rate-bench:pursuit-ppo-velocity_s2-velocity_s2-dif_1.0-prob_0.75-rand_0-from_velocity_s1-evasion-ppo-rate_s2-rate_s1-dif_0.0-prob_0.75-rand_0-from_rate_s1
+- wandb.tags=['benchmark', 'benchmark']
+- task.pursuer_model.policy=velocity
+- task.pursuer_model.source_policy=pursuit-ppo-velocity_s2-velocity_s2-dif_1.0-prob_0.75-rand_0-from_velocity_s1
+- task.evader_model.policy=['rate']
+- task.evader_model.source_policy=['evasion-ppo-rate_s2-rate_s1-dif_0.0-prob_0.75-rand_0-from_rate_s1']

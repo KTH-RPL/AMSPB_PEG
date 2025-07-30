@@ -1,0 +1,3 @@
+mod_speed: 5.0
+damping_speed: 0.2
+max_speed: 5.0

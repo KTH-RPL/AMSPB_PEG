@@ -1,0 +1,20 @@
+- total_frames=50000
+- render_interval=-1
+- task.prob_old_policy=0.75
+- task.env.num_envs=384
+- task.env.arena_size=3.0
+- task.env.max_episode_length=750
+- task.env.start_with_initial_velocity=False
+- task.evader_model.name=Hummingbird
+- task.evader_model.policy=rate_s0
+- task.pursuer_model.name=Hummingbird
+- task.include_distances=True
+- task.include_last_action=False
+- task.include_heading_to_target=False
+- task.use_body_rates=True
+- task.evader_model.source_policy=e-rate-pid-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-seed_0-fr_pid
+- task.pursuer_model.policy=['pid', 'rate']
+- task.pursuer_model.source_policy=['None', 'p-rate-fixed_path_hover-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_0-seed_0-fr_scratch',
+  'p-rate_s-1-rate-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_0-seed_0-fr_rate']
+- wandb.run_name=E-rate_s0-rate-sz:3.0-len:750-v0:0-br:1-prob:0.75-dist:1-p_a:0-ht:0-pid:1-frpn:0-seed:0-fr:rate
+- wandb.tags=['rate']

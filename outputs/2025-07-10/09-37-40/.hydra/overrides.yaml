@@ -1,0 +1,2 @@
+- task.pursuer_model.controller_params.kp=8
+- task.pursuer_model.controller_params.max_speed=8

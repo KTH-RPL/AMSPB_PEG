@@ -1,0 +1,2 @@
+- task.reward_body_rates_weight=0.0005
+- task.reward_effort_weight=0

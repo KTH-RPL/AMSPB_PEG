@@ -1,0 +1,23 @@
+name: Evader_FixedPath
+
+defaults:
+  # see https://hydra.cc/docs/advanced/overriding_packages/
+  - /base/env_base@_here_
+  - /base/sim_base@_here_
+
+env:
+  num_envs: 1
+  env_spacing: 6
+  max_episode_length: 600
+
+pursuer_model: 
+  name: Hummingbird
+  controller: LeePositionController
+
+evader_model:
+  name: Hummingbird
+  controller: LeePositionController
+  policy: fixed_path:hover
+
+future_traj_steps: 1
+time_encoding: true

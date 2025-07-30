@@ -1,0 +1,3 @@
+- task.pursuer_model.controller_params.G=4
+- task.pursuer_model.controller_params.W=0.3
+- task.pursuer_model.controller_params.max_speed=4

@@ -1,0 +1,9 @@
+- task.pursuer_model.policy=rate
+- task.pursuer_model.source_policy=p-rate_s0-rate_s0-sz_2.0-len_600-v0_0-br_1-prob_0.5-dist_1-p_a_0-ht_0-rep_1-u_l-seed_0-fr_rate_s0
+- task.evader_model.policy=['fixed_path:hover', 'fixed_path:circular', 'repel', 'rate_s1',
+  'dumb']
+- task.evader_model.source_policy=[None, None, None, 'e-rate_s0-rate-sz_2.0-len_600-v0_0-br_1-prob_0.5-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_0-fr_rate',
+  None]
+- n_seeds=5
+- task.prob_old_policy=1.00
+- task.env.z_stop=0

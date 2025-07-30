@@ -1,0 +1,4 @@
+- task.evader_model.controller_params.k_pursuer=1
+- task.evader_model.controller_params.k_wall=1
+- task.evader_model.controller_params.order_den_pursuer=2
+- task.evader_model.controller_params.order_den_wall=2

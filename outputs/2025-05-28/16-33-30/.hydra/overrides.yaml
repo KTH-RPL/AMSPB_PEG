@@ -1,0 +1,9 @@
+- total_frames=50000
+- render_interval=-1
+- task.prob_old_policy=0.75
+- wandb.run_name=Pursuit-ppo-rate-fixed_path:circular-dif:0.0-prob:0.75-rand:0-from:fixed_path_hover
+- wandb.tags=['baseline', 'fixed_path:circular']
+- task.evader_model.policy=rate
+- task.evader_model.source_policy=pursuit-ppo-rate-fixed_path_hover-dif_0.0-prob_0.75-rand_0-from_scratch
+- task.pursuer_model.policy=['fixed_path:hover', 'fixed_path:circular']
+- task.pursuer_model.source_policy=[None, None]

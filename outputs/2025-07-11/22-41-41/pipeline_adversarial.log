@@ -1,0 +1,2 @@
+[2025-07-11 22:41:41,725][__main__][INFO] - Warming up pursuer model with warmup_scenarios.pursuer
+[2025-07-11 22:48:34,628][__main__][INFO] - Warming up evader model with warmup_scenarios.evader

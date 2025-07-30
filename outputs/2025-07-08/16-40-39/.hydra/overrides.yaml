@@ -1,0 +1,21 @@
+- optional_tag=nrf
+- use_model=latest
+- task.prob_old_policy=0.75
+- task.env.num_envs=256
+- task.env.arena_size=3.0
+- task.env.max_episode_length=750
+- task.env.start_with_initial_velocity=False
+- task.pursuer_model.name=Hummingbird
+- task.evader_model.name=Hummingbird
+- task.include_distances=True
+- task.include_last_action=False
+- task.include_heading_to_target=False
+- wandb.job_type=debug
+- task.evader_model.policy=rate_s0
+- task.evader_model.source_policy=e-rate-pid-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-u_l-seed_0-fr_scratch-nrf
+- training_scenarios=['pid', 'rate']
+- training_policies=['None', 'p-rate-fixed_path_circular-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_0-u_l-seed_0-fr_fixed_path_circular-nrf']
+- sequential_training=False
+- test_scenarios=['fixed_path:hover', 'fixed_path:circular', 'pid', 'rate', 'dumb']
+- test_policies=['None', 'None', 'None', 'p-rate-fixed_path_circular-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_0-u_l-seed_0-fr_fixed_path_circular-nrf',
+  'None']

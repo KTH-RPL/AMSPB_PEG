@@ -1,0 +1,109 @@
+[2025-07-08 14:35:06,780][asyncio][DEBUG] - Using selector: EpollSelector
+[2025-07-08 14:35:07,502][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-08 14:35:07,502][omni.kit.telemetry.impl.sentry_extension][INFO] - sentry is disabled for external build
+[2025-07-08 14:35:08,707][AutoNode][DEBUG] - Defining data type 'any' as 'Any'
+[2025-07-08 14:35:08,707][AutoNode][DEBUG] - Defining data type 'bool' as 'Bool' and array 'BoolArray
+[2025-07-08 14:35:08,707][AutoNode][DEBUG] - Defining data type 'bundle' as 'Bundle'
+[2025-07-08 14:35:08,707][AutoNode][DEBUG] - Defining data type 'colord[3]' as 'Color3d' and array 'Color3dArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'colorf[3]' as 'Color3f' and array 'Color3fArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'colorh[3]' as 'Color3h' and array 'Color3hArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'colord[4]' as 'Color4d' and array 'Color4dArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'colorf[4]' as 'Color4f' and array 'Color4fArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'colorh[4]' as 'Color4h' and array 'Color4hArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'double' as 'Double' and array 'DoubleArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'double[2]' as 'Double2' and array 'Double2Array
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'double[3]' as 'Double3' and array 'Double3Array
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'double[4]' as 'Double4' and array 'Double4Array
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'execution' as 'Execution'
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'float' as 'Float' and array 'FloatArray
+[2025-07-08 14:35:08,708][AutoNode][DEBUG] - Defining data type 'float[2]' as 'Float2' and array 'Float2Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'float[3]' as 'Float3' and array 'Float3Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'float[4]' as 'Float4' and array 'Float4Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'frame[4]' as 'Frame' and array 'FrameArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'half' as 'Half' and array 'HalfArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'half[2]' as 'Half2' and array 'Half2Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'half[3]' as 'Half3' and array 'Half3Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'half[4]' as 'Half4' and array 'Half4Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'int' as 'Int' and array 'IntArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'int[2]' as 'Int2' and array 'Int2Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'int[3]' as 'Int3' and array 'Int3Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'int[4]' as 'Int4' and array 'Int4Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'int64' as 'Int64' and array 'Int64Array
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'matrixd[2]' as 'Matrix2d' and array 'Matrix2dArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'matrixd[3]' as 'Matrix3d' and array 'Matrix3dArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'matrixd[4]' as 'Matrix4d' and array 'Matrix4dArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'normald[3]' as 'Normal3d' and array 'Normal3dArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'normalf[3]' as 'Normal3f' and array 'Normal3fArray
+[2025-07-08 14:35:08,709][AutoNode][DEBUG] - Defining data type 'normalh[3]' as 'Normal3h' and array 'Normal3hArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'objectId' as 'ObjectId' and array 'ObjectIdArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'path' as 'Path'
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'pointd[3]' as 'Point3d' and array 'Point3dArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'pointf[3]' as 'Point3f' and array 'Point3fArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'pointh[3]' as 'Point3h' and array 'Point3hArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'quatd[4]' as 'Quatd' and array 'QuatdArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'quatf[4]' as 'Quatf' and array 'QuatfArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'quath[4]' as 'Quath' and array 'QuathArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'string' as 'String'
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'target' as 'Target'
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordd[2]' as 'TexCoord2d' and array 'TexCoord2dArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordf[2]' as 'TexCoord2f' and array 'TexCoord2fArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordh[2]' as 'TexCoord2h' and array 'TexCoord2hArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordd[3]' as 'TexCoord3d' and array 'TexCoord3dArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordf[3]' as 'TexCoord3f' and array 'TexCoord3fArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'texcoordh[3]' as 'TexCoord3h' and array 'TexCoord3hArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'timecode' as 'Timecode' and array 'TimecodeArray
+[2025-07-08 14:35:08,710][AutoNode][DEBUG] - Defining data type 'token' as 'Token' and array 'TokenArray
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'uchar' as 'UChar' and array 'UCharArray
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'uint' as 'UInt' and array 'UIntArray
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'uint64' as 'UInt64' and array 'UInt64Array
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'vectord[3]' as 'Vector3d' and array 'Vector3dArray
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'vectorf[3]' as 'Vector3f' and array 'Vector3fArray
+[2025-07-08 14:35:08,711][AutoNode][DEBUG] - Defining data type 'vectorh[3]' as 'Vector3h' and array 'Vector3hArray
+[2025-07-08 14:35:11,560][omni.kit.profiler.window][WARNING] - remove _SpanInstance.__lt__ and use insort 'key' arg instead
+[2025-07-08 14:35:15,424][git.cmd][DEBUG] - Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=None, shell=False, universal_newlines=False)
+[2025-07-08 14:35:15,570][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:15,753][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:15,756][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:15,982][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:16,009][git.cmd][DEBUG] - Popen(['git', 'cat-file', '--batch-check'], cwd=/home/alesr/Repositories/Omnidrones-PEG, stdin=<valid stream>, shell=False, universal_newlines=False)
+[2025-07-08 14:35:20,846][root][INFO] - Reading pursuer's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-08 14:35:20,860][root][INFO] - Reading evader's params from /home/alesr/Repositories/Omnidrones-PEG/omni_drones/robots/assets/usd/hummingbird.yaml.
+[2025-07-08 14:35:29,372][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-08 14:35:30,968][root][INFO] - Default parameters:
+Mass: [[0.6800000071525574]]
+Inertia: [[0.007000000681728125, 0.007000000681728125, 0.011999999172985554]]
+Thrust2Weight: [[0.8999204039573669, 0.8999204039573669, 0.8999204039573669, 0.8999204039573669]]
+Force2Moment: [[62.499996185302734, 62.499996185302734, 62.499996185302734, 62.499996185302734]]
+[2025-07-08 14:35:31,136][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:31,321][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:31,324][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:31,488][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:31,492][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:31,773][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:31,777][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:31,977][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:31,981][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-07-08 14:35:32,176][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/alesr_kth/PEG/4sxo0i05/artifact/1865580770/wandb_manifest.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250708%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250708T123531Z&X-Goog-Expires=3599&X-Goog-Signature=0dee03279c30aaa8697b0b1830efbd2a0819adb5776a21d66009638e15431f061759123734cf0d1070562d3a38ee049cb38d1fe2d24215c0a58cf946401e71651f295cf050cbd1edfe8d1960e4d0897ca5752936a4906a966fd3e011063ca2787c2925f14c05dfc61c310bc231c23d1cff691dffa8ce62af115eb31b4ceeeeb5e1cbfe3d9af0690b56a79dab44c531610c826fbaa56d1141e0f919943af509bc7c86fe64d114d3b818918af6acb248fe41168a25a6c637c5a48b6d0a3fd3fe977c8c7712f512b59b77d6d8585d39ecb8d505e67c0ae447404184c9bcafa469d0f22ba5b60a72cbc1ecfc35bda695ed8939b7e40c80ed677232e1c648826717d8&X-Goog-SignedHeaders=host&X-User=alesr HTTP/11" 200 343
+[2025-07-08 14:35:32,200][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:32,391][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "GET /artifactsV2/default/alesr_kth/QXJ0aWZhY3Q6MTg2NTU4MDc3MA%3D%3D/7f1966b236e82fcf65c60d435d574389 HTTP/11" 307 None
+[2025-07-08 14:35:32,395][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-07-08 14:35:32,648][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-artifacts-prod/wandb_artifacts/681738746/1865580770/7f1966b236e82fcf65c60d435d574389?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250708%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250708T123532Z&X-Goog-Expires=3599&X-Goog-Signature=936be97cc10da92896835f20b267571836556a9ee1754fdd549024f003378485934e7632a9a2f7d56737411ce1b6a482ea83eac5dc022cdf6afd881f90e0fe69c276c9d6216a48c98d87ca12da52babf5687cea391eae65c3b12d8f1b0fe3f62117dc6cdfe1477ecdce306f2c5a51f86697b2e6f0135f03f694cb2d08e7164e83181607310da252525ace099f11b0b943392633b7caba2a604f377fae7895c0dc4593c0effb7c4df270cd8576dab5286a5bebb5d5719f2bc4cf2efb479709f7629e378439c8cccad510ccce1e27cf8746d5b671df6b67ee9299484d96946e139e3b50b1c26806fbc7e93439cda2efc6f80f2b76e624338b0d7d5e7225222af97&X-Goog-SignedHeaders=host&X-User=alesr&response-content-disposition=attachment HTTP/11" 200 1160454
+[2025-07-08 14:35:33,578][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:33,757][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:33,760][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:33,928][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:33,932][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:34,265][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:34,272][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:34,474][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "POST /graphql HTTP/11" 200 None
+[2025-07-08 14:35:34,478][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-07-08 14:35:34,641][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/alesr_kth/PEG/cd255sek/artifact/1865574617/wandb_manifest.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250708%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250708T123534Z&X-Goog-Expires=3599&X-Goog-Signature=6cc8941896cf37b697d6267e7b81e6f462717ce57391e561b8933d767394121358fe71bfbfb60890e7639d2a4861cf463ac0f96c7ac15db7e3b7aa23f521c7b4a5cbb4d2e75fbd567c654220fcd6d9e59b38147e35a58d721d1a1a75cf75cad2b7f6c92276f3cd903617affdf58c6b9721bae7b5dc933b6f91ff82017a64c82d05e0edd41a9c3662413b168d0a0c9bd74afd1b72634e8ef1fedf753f8de4766983d8d2e8cfd34039dd37188909d7f0ce170f833442b8ac50d805a1702ae9522e683d6678d62ce99de935e164a852d072b48c65336de85da54a70c1f16bed6619fd6ce4c78d8871f35c30dc296bbe570244322bbbf2dd1efdfa89ef10340fe4fa&X-Goog-SignedHeaders=host&X-User=alesr HTTP/11" 200 343
+[2025-07-08 14:35:34,673][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): api.wandb.ai:443
+[2025-07-08 14:35:34,881][urllib3.connectionpool][DEBUG] - https://api.wandb.ai:443 "GET /artifactsV2/default/alesr_kth/QXJ0aWZhY3Q6MTg2NTU3NDYxNw%3D%3D/4c4a05eb9bf4802e902ed7c40b05ca1d HTTP/11" 307 None
+[2025-07-08 14:35:34,884][urllib3.connectionpool][DEBUG] - Starting new HTTPS connection (1): storage.googleapis.com:443
+[2025-07-08 14:35:35,184][urllib3.connectionpool][DEBUG] - https://storage.googleapis.com:443 "GET /wandb-artifacts-prod/wandb_artifacts/681726258/1865574617/4c4a05eb9bf4802e902ed7c40b05ca1d?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com%2F20250708%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250708T123534Z&X-Goog-Expires=3599&X-Goog-Signature=8c914bd1fe4637a3601fc79d4c66bdf72349f36ac2f1917e412ce1401f1b2cb726f32ffe20be0a0c67be564886cedf86e173df2f7274613319f8f862f35e79a17d39cfb38668f075cb4aa19d9b1028af7129ffd659973d85d4e5fda86ac042144e78556d6b4a32c7e11fa6cb6abd7264a3aebf7e91eab73b2837d6f8ff65f07720e35249b4d36593c0a38cf1d521cd6d1352e2a8227cbaad631cfbaf4ab9f4053d5e7b2aa274e880d0dbd77fe61a07f7d7f35af52b9dee3b99b10c820d27222ed7ed50d1c6d221cebe2b977ad3c9d72b8da0ef161950a344db70209c460a4f7e1d62f30d4ef0387153d2e31a15d6d35b6e6e260dfb229856a63387f04ca7610d&X-Goog-SignedHeaders=host&X-User=alesr&response-content-disposition=attachment HTTP/11" 200 1164550
+[2025-07-08 14:35:37,574][root][INFO] - Eval at 12288 steps.

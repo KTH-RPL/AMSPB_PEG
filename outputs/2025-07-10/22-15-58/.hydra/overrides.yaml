@@ -1,0 +1,3 @@
+- task.reward_approach_weight=0.05
+- task.reward_body_rates_weight=0.005
+- task.reward_out_of_bounds=1

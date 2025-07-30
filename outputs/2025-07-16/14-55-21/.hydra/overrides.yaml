@@ -1,0 +1,4 @@
+- task.prob_old_policy=0.0
+- seed=0
+- task.pursuer_model.source_policy=p-rate-repel-sz_2.0-len_600-v0_0-br_1-prob_0.0-dist_1-p_a_0-ht_0-rep_1-u_l-seed_0-fr_repel
+- task.evader_model.source_policy=e-rate-frpn-sz_2.0-len_600-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_0-fr_scratch
