@@ -165,15 +165,9 @@ class FRPN_Pursuit(ControllerBase):
         self.max_speed = torch.tensor([controller_params["max_speed"]])
 
         self.dt = env_params["dt"]
-        # self.curriculum_pursuer_speed = env_params["curriculum_pursuer_speed"]
         min_frames_max_speed = 1000000
         self.total_frames = env_params["total_frames"] - min_frames_max_speed if env_params["total_frames"] > min_frames_max_speed else env_params["total_frames"]
         self.start_speed = self.max_speed # just initialization
-
-        # if self.curriculum_pursuer_speed:
-        #     self.start_speed = self.max_speed * 0.1
-        # else:
-        #     self.start_speed = self.max_speed
 
     def do_curriculum_speed(self, bool: bool):
         self.curriculum_pursuer_speed = bool

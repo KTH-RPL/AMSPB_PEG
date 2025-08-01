@@ -6,19 +6,19 @@ hydra:
     - file://cfg
 
 headless: true
-use_model: "latest" # best, latest, None
+use_model: "latest" # best, latest. Used when fetching the weights of the source policy.
 
 sim: ${task.sim}
 env: ${task.env}
 
 total_frames: 5_000_000
 max_iters: -1
-eval_interval: 50
-render_interval: -1
+eval_interval: 50 
+render_interval: 300
 save_interval: 200
-early_stop_threshold: 0.95
+early_stop_threshold: 0.95 # if for early_stop_patience evaluations the success rate is above this threshold, training is stopped
 early_stop_patience: -1
-n_seeds: 1
+n_seeds: 1 # number of seeds to run the benchmark. Results are averaged over the seeds.
 
 task:
   name: Pursuit
@@ -37,73 +37,38 @@ task:
     vel0_std: 0.00
     leave_spacing_between_envs: true
     include_noise_in_observations: false
-    curriculum_pursuer_speed: false
+    curriculum_pursuer_speed: false # if True, pursuer speed is increased gradually during training
     z_min: 0.5 # min height of the arena
-    z_stop: -2.0 # below z_stop, episode is terminated
+    z_stop: 0.0 # below z_stop, we assume the drone has crashed
     scale_drones: 1.0
 
   pursuer_model: 
     name: Hummingbird
     policy: frpn # {fixed_path:hover, fixed_path:circular, pid, pn, frpn, velocity, rate, thrust}
-    source_policy: 
-      # p-rate_s1-rate_s1-sz_2.0-len_600-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-rep_1-u_l-seed_0-fr_rate_s1      
+    source_policy: # only needed when an RL policy is used
       None
 
     controller_params: 
       None
 
-      # G: 5
-      # W: 0.2
-      # max_speed: [8.0]
-
-      # kp: 4
-      # ki: 0.0
-      # kd: 0.0
-      # integral_limit: 0.0
-      # derivative_limit: 0.0
-      # max_speed: [8.0]
-      # max_acceleration: [0.0] 
-      # filter_alpha: 0.0
-
   evader_model:
     name: Hummingbird
+    # list of policies to use for the evader. policy[0:-2] are sampled with prob_old_policy, while policy[-1]
+    # is sampled with 1 - prob_old_policy
     policy: [
             "fixed_path:hover", 
-            "fixed_path:circular", 
-            "repel",
-            "rate_s1",
-
+            # "fixed_path:circular", 
+            # "repel",
             "dumb",
             ] # {fixed_path:hover, fixed_path:circular, fixed_path:lemniscate, repel, thrust, rate, velocity}
     source_policy: [
                   None, 
-                  None, 
-                  None,
-
-                  # e-rate_s2-rate_s2-sz_2.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_1-u_l-seed_0-fr_rate_s2,
-
-                  # train_evader_repeat,
-                  # train_evader_vclosewellnormalized,
-
-                  # e-rate_s1-rate_s0-sz_2.0-len_600-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_0-frpn_1-u_l-seed_0-fr_rate_s0,
-
-                  train_evader_seed42,
-
+                  # None, 
+                  # None,
                   None,
                   ]
     controller_params:
       None
-
-      # k_pursuer: 1.0     
-      # k_wall: 1.0
-      # order_den_pursuer: 3
-      # order_den_wall: 2
-      # min_wall_dist: 100.0
-      # min_pursuer_dist: 100.0
-      # max_speed: 8.0
-
-    # policy: ["rate"]
-    # source_policy: ["evasion-ppo-rate_s2-rate_s1-dif_0.0-prob_0.75-rand_0-from_rate_s1"]
 
   do_randomization: false
   randomization:
@@ -153,12 +118,10 @@ viewer:
 
 wandb:
   group: ${oc.select:..task.name}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}-${oc.select:..task.pursuer_model.policy,none}-${oc.select:..task.evader_model.policy,none}-dif:${oc.select:..task.difficulty.arena_size,0.0}-from:${oc.select:..task.initialize_from,none}
   run_name: benchmark_pursuer
   job_type: eval # debug, eval
-  entity: alesr_kth
-  project: PEG
+  entity: 
+  project: 
   mode: online # set to 'disabled' when debugging locally
   run_id:
   monitor_gym: True

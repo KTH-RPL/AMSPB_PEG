@@ -6,7 +6,7 @@ hydra:
     - file://cfg
 
 headless: true
-use_model: "latest" # latest, best
+use_model: "latest" # latest, best. Used when fetching the weights of the source policy.
 
 sim: ${task.sim}
 env: ${task.env}
@@ -16,7 +16,7 @@ max_iters: -1
 eval_interval: 50
 render_interval: 300 # must be divisible by eval_interval
 save_interval: 200
-early_stop_threshold: 0.95
+early_stop_threshold: 0.95 # if for early_stop_patience evaluations the success rate is above this threshold, training is stopped
 early_stop_patience: 3
 seed: 0
 
@@ -26,9 +26,6 @@ algo:
   learning_rate: 5e-4
   priv_critic: false
   gamma: 0.99
-
-  # name: ppo_rnn
-  # rnn: gru
 
 task:
   name: Pursuit
@@ -48,7 +45,7 @@ task:
     leave_spacing_between_envs: true
     include_noise_in_observations: false
     z_min: 0.5 # min height of the arena
-    z_stop: 0.0 # below z_stop, episode is terminated
+    z_stop: 0.0 # below z_stop, we assume the drone has crashed
     scale_drones: 1.0
 
   pursuer_model: 
@@ -59,6 +56,8 @@ task:
 
   evader_model:
     name: Hummingbird
+    # list of policies to use for the evader. policy[0:-2] are sampled with prob_old_policy, while policy[-1]
+    # is sampled with 1 - prob_old_policy
     policy: [
       'fixed_path:hover', 
       'fixed_path:circular', 
@@ -69,8 +68,6 @@ task:
       None, 
       None, 
       None, 
-      # e-rate_s0-rate-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-u_l-seed_0-fr_rate-n4
-      # e-rate-pid-sz_3.0-len_750-v0_0-br_1-prob_0.75-dist_1-p_a_0-ht_0-pid_1-frpn_0-u_l-seed_0-fr_scratch-n4
       ]
     controller_params: None
 
@@ -117,12 +114,10 @@ viewer:
 
 wandb:
   group: ${oc.select:..task.name}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}-${oc.select:..task.pursuer_model.policy,none}-${oc.select:..task.evader_model.policy,none}-dif:${oc.select:..task.difficulty.arena_size,0.0}-from:${oc.select:..task.initialize_from,none}
-  run_name: train_pursuer # train_pursuer
+  run_name: train_pursuer 
   job_type: train
-  entity: alesr_kth
-  project: PEG
+  entity: 
+  project: 
   mode: online # set to 'disabled' when debugging locally
   run_id:
   monitor_gym: True
@@ -132,5 +127,4 @@ defaults:
   - task: Pursuit
   - algo:
       ppo 
-      # ppo_gru
   - _self_

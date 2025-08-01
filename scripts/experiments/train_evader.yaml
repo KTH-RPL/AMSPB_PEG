@@ -6,7 +6,7 @@ hydra:
     - file://cfg
 
 headless: true
-use_model: "latest" # latest, best
+use_model: "latest" # latest, best. Used when fetching the weights of the source policy.
 
 sim: ${task.sim}
 env: ${task.env}
@@ -16,7 +16,7 @@ max_iters: -1
 eval_interval: 50
 render_interval: 300 # must be divisible by eval_interval, -1 if not rendering
 save_interval: 100 # multiple of eval_interval
-early_stop_threshold: 0.95 
+early_stop_threshold: 0.95 # if for early_stop_patience evaluations the success rate is above this threshold, training is stopped
 early_stop_patience: 3
 seed: 0
 
@@ -44,7 +44,7 @@ task:
     include_noise_in_observations: false
     curriculum_pursuer_speed: true
     z_min: 0.5 # min height of the arena
-    z_stop: -1.0 # below z_stop, episode is terminated
+    z_stop: -1.0 # below z_stop, we assume the drone has crashed
 
   pursuer_model: 
     name: Hummingbird
@@ -53,7 +53,7 @@ task:
       # "fixed_path:circular",
       # "pid",
       "frpn",
-      ] # {fixed_path:hover, fixed_path:circular, fixed_path:lemniscate, pid ,frpn, thrust, velocity}
+      ] # {fixed_path:hover, fixed_path:circular,pid ,frpn, thrust, rate, velocity}
     source_policy: [
       # None,
       # None,
@@ -94,7 +94,7 @@ task:
   reward_approach_weight: 0.00 
   reward_timestep: 0.007 
   reward_evader_escaped: 10
-  reward_body_rates_weight: 0.0005 # befor 0.001 
+  reward_body_rates_weight: 0.0005 
 
   reward_out_of_bounds: 0.1 
   reward_action_smoothness: 0.0000 
@@ -110,12 +110,10 @@ viewer:
 
 wandb:
   group: ${oc.select:..task.name}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}
-  # run_name: ${oc.select:..task.name,test}-${oc.select:..algo.name,none}-${oc.select:..task.pursuer_model.policy,none}-${oc.select:..task.evader_model.policy,none}-dif:${oc.select:..task.difficulty.arena_size,0.0}-from:${oc.select:..task.initialize_from,none}
   run_name: train_evader # train_evader
   job_type: train
-  entity: alesr_kth
-  project: PEG
+  entity: 
+  project: 
   mode: online # set to 'disabled' when debugging locally
   run_id:
   monitor_gym: True

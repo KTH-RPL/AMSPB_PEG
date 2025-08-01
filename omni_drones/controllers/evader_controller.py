@@ -123,7 +123,6 @@ class Repel_Evade(ControllerBase):
         pos_p = get_position_from_state(pursuer_state)
         pos_e = get_position_from_state(evader_state)
 
-        # 1) Purser repulsion
         e_p = pos_e - pos_p
         dist_pe = e_p.norm(dim=-1, keepdim=True).clamp(min=1e-6)
         
@@ -134,9 +133,6 @@ class Repel_Evade(ControllerBase):
             self.k_pursuer*e_p/(dist_pe**self.order_den_pursuer),
             f_pursuer
         )
-
-        # Option a) Include forces from all the walls
-        # Compute signed distances: d_i = n_i · x - offset_i
         dist_w = (pos_e * self.wall_normals).sum(dim=-1) - self.wall_offsets
         dist_w = dist_w.clamp(min=1e-6)
 
@@ -146,24 +142,6 @@ class Repel_Evade(ControllerBase):
         f_wall = f_wall.sum(dim=-2, keepdim=True)
 
         F_total = f_pursuer + f_wall
-
-        # Option b) Only ground wall and attraction towards the center, but this keeps the evader away
-
-        # Attraction towards the center of the arena
-        # center = (self.arena_min + self.arena_max) / 2.0
-        # center_attraction = center - pos_e
-        # dist_center = center_attraction.norm(dim=-1, keepdim=True).clamp(min=1e-6)
-        # f_center = self.k_wall * center_attraction / (dist_center**self.order_den_wall)
-
-        # Distance to the ground
-        # dist_ground = pos_e[..., 2] - self.offset_ground
-        # dist_ground = dist_ground.clamp(min=1e-6)
-        # mask_ground = dist_ground > self.min_wall_dist
-        # f_ground = self.k_wall * self.normal_ground * (1.0 / (dist_ground**self.order_den_wall))
-        # f_ground[mask_ground.squeeze(-1),:] = 0.0  
-        # f_ground = f_ground.unsqueeze(-2)  # ensure shape is (..., 3)
-
-        # F_total = f_pursuer + f_center + f_ground
 
         u_cmd = F_total / F_total.norm(dim=-1, keepdim=True).clamp(min=1e-6) * self.max_speed
         yaw = torch.atan2(u_cmd[..., 1], u_cmd[..., 0]).unsqueeze(-1)
