@@ -6,7 +6,6 @@ A repository containing the code and resources for the paper **"Learned Controll
 
 <video width="640" controls>
   <source src="media/hover_short" type="video/mp4">
-  Your browser doesn’t support HTML5 video.
 </video>
 
 ---
