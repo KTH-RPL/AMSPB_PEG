@@ -19,6 +19,12 @@ Key highlights:
 * **AMSPB training** alternates learning between pursuer and evader while sampling from a growing population of past and current policies to mitigate catastrophic forgetting and ensure monotonic improvement.
 * **High-fidelity simulation** in NVIDIA Isaac Sim (4.1.0) with realistic quadrotor dynamics at 62.5 Hz.
 
+**Asynchronous Multi-Stage Population-Based (AMSPB)**
+<img width="1622" height="415" alt="AMSPB_scheme" src="https://github.com/user-attachments/assets/f28d2783-8f36-4286-9054-561820da791d" />
+
+**RL-Policies**
+<img width="1169" height="526" alt="policies" src="https://github.com/user-attachments/assets/e8a47c9e-fa63-4454-8f3a-2a10244486d9" />
+
 ---
 
 ## 🔧 Installation
