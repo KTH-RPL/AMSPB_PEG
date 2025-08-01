@@ -4,9 +4,6 @@
 
 A repository containing the code and resources for the paper **"Learned Controllers for Agile Quadrotors in Pursuit-Evasion Games"** by Alejandro Sánchez Roncero, Yixi Cai, Olov Andersson, and Petter Ögren. We build our code on [OmniDrones](https://omnidrones.readthedocs.io/en/latest/). 
 
-https://github.com/user-attachments/assets/1a53628e-1fdc-454b-9f14-ce0460cb41d8
-
-
 ---
 
 ## 🚀 Overview
