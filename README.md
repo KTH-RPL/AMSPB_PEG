@@ -2,7 +2,7 @@
 
 [![arXiv: Learn Controllers for Agile Quadrotors in Pursuit-Evasion Games](https://img.shields.io/badge/arXiv-2407.00000-B31B1B.svg)](https://arxiv.org/abs/2506.02849)
 
-A repository containing the code and resources for the paper **"Learned Controllers for Agile Quadrotors in Pursuit-Evasion Games"** by Alejandro Sánchez Roncero, Yixi Cai, Olov Andersson, and Petter Ögren. We build our code on the [OmniDrones](https://omnidrones.readthedocs.io/en/latest/) 
+A repository containing the code and resources for the paper **"Learned Controllers for Agile Quadrotors in Pursuit-Evasion Games"** by Alejandro Sánchez Roncero, Yixi Cai, Olov Andersson, and Petter Ögren. We build our code on [OmniDrones](https://omnidrones.readthedocs.io/en/latest/). 
 
 **Abstract**:
 The increasing proliferation of small UAVs in civilian and military airspace has raised critical safety and security concerns, especially when unauthorized or malicious drones enter restricted zones. In this work, we present a reinforcement learning (RL) framework for agile 1v1 quadrotor pursuit-evasion. We train neural network policies to command body rates and collective thrust, enabling high-speed pursuit and evasive maneuvers that fully exploit the quadrotor's nonlinear dynamics. To mitigate nonstationarity and catastrophic forgetting during adversarial co-training, we introduce an Asynchronous Multi-Stage Population-Based (AMSPB) algorithm where, at each stage, either the pursuer or evader learns against a sampled opponent drawn from a growing population of past and current policies. This continual learning setup ensures monotonic performance improvement and retention of earlier strategies. Our results show that (i) rate-based policies achieve significantly higher capture rates and peak speeds than velocity-level baselines, and (ii) AMSPB yields stable, monotonic gains against a suite of benchmark opponents.
@@ -18,12 +18,6 @@ Key highlights:
 * **Body-rate policies** that command roll, pitch, yaw rates and collective thrust to exploit full quadrotor dynamics.
 * **AMSPB training** alternates learning between pursuer and evader while sampling from a growing population of past and current policies to mitigate catastrophic forgetting and ensure monotonic improvement.
 * **High-fidelity simulation** in NVIDIA Isaac Sim (4.1.0) with realistic quadrotor dynamics at 62.5 Hz.
-
-**Asynchronous Multi-Stage Population-Based (AMSPB)**
-<img width="1622" height="415" alt="AMSPB_scheme" src="https://github.com/user-attachments/assets/f28d2783-8f36-4286-9054-561820da791d" />
-
-**RL-Policies**
-<img width="1169" height="526" alt="policies" src="https://github.com/user-attachments/assets/e8a47c9e-fa63-4454-8f3a-2a10244486d9" />
 
 ---
 
@@ -80,12 +74,53 @@ pip install --upgrade tensordict==0.3.2 torchrl==0.3.1
 
 ---
 
-## 🏁 Quick Start (coming soon)
-- Download and test our policies
-- Train your own algorithms
+## 🏁 Quick Start
+
+To train and evaluate our quadrotor pursuit–evasion policies, follow these steps:
+
+### 1. Train Pursuer and Evader Policies
+
+The training scripts are located in `scripts/experiments/`. You can configure each run via the corresponding YAML config file.
+
+* **Train Pursuer**:
+
+  ```bash
+  python scripts/experiments/train_pursuer.py 
+  ```
+
+* **Train Evader**:
+
+  ```bash
+  python scripts/experiments/train_evader.py 
+  ```
+
+By default, the scripts use the configurations from our paper. To modify hyperparameters or environment settings, edit the YAML files directly.
+
+If you want to log experiments online with Weights & Biases (W\&B), add the following parameters:
+
+```bash
+--wandb.entity <project_name> --wandb.entity <entity_name>
+```
+
+### 2. Benchmark Trained Policies
+
+To evaluate trained policies without further training, use the benchmark script in `scripts/benchmark/`:
+
+```bash
+python scripts/benchmark/benchmark_pursuer.py 
+```
+
+Edit the benchmark config file to set evaluation parameters (e.g., number of episodes, seed, evaluation opponents).
+
+### 3. Adversarial Co-training (Coming Soon)
+
+The adversarial co-training pipeline (AMSPB) implementation will be released soon. Stay tuned for updates.
+
+---
 
 ## 📈 Results
 
+<!-- Add evaluation plots and metrics here -->
 
 ## 📚 Citation
 
