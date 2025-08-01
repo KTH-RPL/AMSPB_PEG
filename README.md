@@ -4,8 +4,10 @@
 
 A repository containing the code and resources for the paper **"Learned Controllers for Agile Quadrotors in Pursuit-Evasion Games"** by Alejandro Sánchez Roncero, Yixi Cai, Olov Andersson, and Petter Ögren. We build our code on [OmniDrones](https://omnidrones.readthedocs.io/en/latest/). 
 
-**Abstract**:
-The increasing proliferation of small UAVs in civilian and military airspace has raised critical safety and security concerns, especially when unauthorized or malicious drones enter restricted zones. In this work, we present a reinforcement learning (RL) framework for agile 1v1 quadrotor pursuit-evasion. We train neural network policies to command body rates and collective thrust, enabling high-speed pursuit and evasive maneuvers that fully exploit the quadrotor's nonlinear dynamics. To mitigate nonstationarity and catastrophic forgetting during adversarial co-training, we introduce an Asynchronous Multi-Stage Population-Based (AMSPB) algorithm where, at each stage, either the pursuer or evader learns against a sampled opponent drawn from a growing population of past and current policies. This continual learning setup ensures monotonic performance improvement and retention of earlier strategies. Our results show that (i) rate-based policies achieve significantly higher capture rates and peak speeds than velocity-level baselines, and (ii) AMSPB yields stable, monotonic gains against a suite of benchmark opponents.
+<video width="640" controls>
+  <source src="media/main_demo.mp4" type="video/mp4">
+  Your browser doesn’t support HTML5 video.
+</video>
 
 ---
 
